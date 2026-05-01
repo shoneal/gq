@@ -59,5 +59,5 @@ export const covers = [
   ["Charles Leclerc and Carlos Sainz", "2022-08-09", 11],
   ["Pusha T", "2022-05-04", 8],
   ["Robert Pattinson", "2022-02-08", 13],
-  ["Shohei Ohtani", "2022-01-12"],
+  ["Shohei Ohtani", "2022-01-12", 24],
 ];
