@@ -50,13 +50,12 @@ body {
   height: 100%;
   min-height: 100%;
   margin: 0;
-  padding: 163px 0 0;
   font-family: "GQSans Bold", sans-serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 1.5em;
   letter-spacing: 0.0025em;
-  background: linear-gradient(var(--background-color) 50%, black 50%);
+  background: black;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -152,7 +151,7 @@ body {
 main {
   max-width: 1600px;
   margin: 0px auto;
-  padding-bottom: 106px;
+  padding: 163px 0 106px;
   background-color: var(--background-color);
 }
 
@@ -229,7 +228,7 @@ main {
   visibility: hidden;
   opacity: 0;
   overflow-y: auto;
-  background: linear-gradient(var(--background-color) 99%, black 99%);
+  background: black;
   pointer-events: none;
   user-select: none;
   -ms-overflow-style: none;
@@ -372,7 +371,7 @@ main {
     --grid-margin: 3rem;
   }
 
-  body,
+  main,
   .popup-content {
     padding-top: 187px;
   }
@@ -396,7 +395,7 @@ main {
     --grid-gap: 1.5rem;
   }
 
-  body,
+  main,
   .popup-content {
     padding-top: 155px;
   }
@@ -432,9 +431,9 @@ main {
     --grid-margin: 1.5rem;
   }
 
-  body,
+  main,
   .popup-content {
-    padding-top: 115px 0 0;
+    padding-top: 115px;
   }
 
   main {
