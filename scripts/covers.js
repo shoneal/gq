@@ -28,7 +28,7 @@ export const covers = [
   ["Himesh Patel", "2024-10-28", 9],
   ["Beyoncé", "2024-09-10", 8],
   ["Stefon Diggs", "2024-09-03", 7],
-  ["George Clooney and Brad Pitt", "2024-08-13", 12],
+  ["George Clooney and Brad Pitt", "2024-08-13", 9],
   ["Tyrese Haliburton", "2024-07-24", 7],
   ["Amandla Stenberg", "2024-06-03", 9],
   ["Nicholas Galitzine", "2024-05-08", 9],
