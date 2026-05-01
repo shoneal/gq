@@ -158,7 +158,7 @@ const renderItems = (items) => {
         let verticalGroup = [];
 
         images.forEach((img, index) => {
-          const isHorizontal = img.naturalWidth > img.naturalHeight;
+          const isHorizontal = img.naturalWidth >= img.naturalHeight;
 
           if (isHorizontal) {
             img.classList.add("horizontal");
