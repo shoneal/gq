@@ -74,7 +74,7 @@ export const covers = [
   ["James Harden and Russell Westbrook", "2020-02-18", 8],
   ["Tyler, the Creator", "2019-11-19", 13],
   ["Jennifer Lopez", "2019-11-18", 6],
-  ["Pharrell Williams", "2019-10-14", 12],
+  ["Pharrell Williams", "2019-10-14", 11],
   ["Brad Pitt", "2019-09-16", 12],
   ["Odell Beckham Jr.", "2019-07-22", 14],
   ["Seth Rogen", "2019-05-21", 12],
