@@ -35,11 +35,9 @@ function generateSlug(title) {
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
-    .replace(/['’]/g, "-")
-    .replace(/[^a-z0-9\s-]/g, "-")
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "");
+    .replace(/['’\W_]+/g, "-") // объединяем замену кавычек, спецсимволов и пробелов
+    .replace(/^-|-$/g, "")
+    .replace(/-+/g, "-"); // убираем дублирующиеся дефисы
 } // Создаёт slug для URL изображения
 const setupImageWithContainer = (img) => {
   const onLoadOrError = () => {

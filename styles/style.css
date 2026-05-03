@@ -55,7 +55,7 @@ body {
   font-size: 20px;
   line-height: 1.5em;
   letter-spacing: 0.0025em;
-  background: black;
+  background: var(--background-color);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -76,7 +76,7 @@ body {
   grid-template-columns: auto 1fr auto;
   justify-content: stretch;
   align-items: center;
-  gap: 0.5rem;
+  gap: 3rem;
   width: 100%;
   border-bottom: 1px solid var(--border);
   padding-inline: 0.5rem;
@@ -113,8 +113,10 @@ body {
 }
 
 .years-wrapper {
+  display: flex;
   grid-column-start: 3;
-  width: fit-content;
+  justify-content: end;
+  width: 100%;
   margin-left: auto;
   overflow: auto;
 }
@@ -228,7 +230,7 @@ main {
   visibility: hidden;
   opacity: 0;
   overflow-y: auto;
-  background: black;
+  background: var(--background-color);
   pointer-events: none;
   user-select: none;
   -ms-overflow-style: none;
@@ -402,6 +404,7 @@ main {
 
   .header {
     grid-template-columns: auto 1fr auto;
+    gap: 0.5rem;
   }
 
   .logo {
@@ -438,10 +441,6 @@ main {
 
   main {
     padding-bottom: 66px;
-  }
-
-  .years-wrapper {
-    width: 100%;
   }
 
   .section-heade-wrapper {
