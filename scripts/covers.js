@@ -54,7 +54,7 @@ export const covers = [
   ["Allen Iverson", "2023-01-10", 9],
   ["Kumail Nanjiani", "2023-01-09", 10],
   ["Jeremy Allen White", "2022-11-30", 9],
-  ["Andrew Garfield", "2022-11-15"],
+  ["Andrew Garfield", "2022-11-15", 10],
   ["Karim Benzema", "2022-11-02", 8],
   ["Christian Bale", "2022-10-05", 13],
   ["Charles Leclerc and Carlos Sainz", "2022-08-09", 11],
