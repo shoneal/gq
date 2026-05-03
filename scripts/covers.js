@@ -58,7 +58,7 @@ export const covers = [
   ["Karim Benzema", "2022-11-02", 8],
   ["Christian Bale", "2022-10-05", 13],
   ["Charles Leclerc and Carlos Sainz", "2022-08-09", 11],
-  ["Pusha T", "2022-05-04", 8],
+  ["Pusha T", "2022-05-04", 7],
   ["Robert Pattinson", "2022-02-08", 13],
   ["Shohei Ohtani", "2022-01-12", 24],
   ["Mo Salah", "2022-01-11", 10],
