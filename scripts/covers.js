@@ -24,7 +24,7 @@ export const covers = [
   ["Naomi Ackie", "2024-12-30", 8],
   ["Jesse Eisenberg", "2024-12-04", 9],
   ["Eve Hewson", "2024-11-15", 8],
-  ["Kobbie Mainoo and Cole Palmer", "2024-11-13"],
+  ["Kobbie Mainoo and Cole Palmer", "2024-11-13", 7],
   ["Dwayne Johnson", "2024-11-11", 15],
   ["Himesh Patel", "2024-10-28", 9],
   ["Beyoncé", "2024-09-10", 8],
