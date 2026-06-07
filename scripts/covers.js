@@ -1,4 +1,5 @@
 export const covers = [
+  ["GQ All-Stars", "2026-06-01", 31],
   ["Matt Damon, Tom Holland and Robert Pattinson", "2026-06-02", 19],
   ["Josh Hutcherson", "2026-04-20", 11],
   ["Paul Anthony Kelly", "2026-02-24", 12],
