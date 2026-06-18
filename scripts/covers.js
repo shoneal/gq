@@ -1,97 +1,749 @@
-export const covers = [
-  ["GQ All-Stars", "2026-06-01", 31],
-  ["Matt Damon, Tom Holland and Robert Pattinson", "2026-06-02", 19],
-  ["Josh Hutcherson", "2026-04-20", 11],
-  ["Paul Anthony Kelly", "2026-02-24", 12],
-  ["Lewis Pullman", "2026-02-02", 9],
-  ["Pierce Brosnan", "2025-11-17", 12],
-  ["Hailey Bieber2", "2025-11-11", 6],
-  ["Josh O’Connor2", "2025-10-14", 9],
-  ["Shai Gilgeous-Alexander", "2025-10-13", 15],
-  ["Glen Powell", "2025-09-09", 13],
-  ["Tyshawn Jones", "2025-08-26", 12],
-  ["Cooper Hoffman and David Jonsson", "2025-08-19", 13],
-  ["Travis Kelce", "2025-08-12", 15],
-  ["David Corenswet", "2025-07-07", 12],
-  ["Teyana Taylor", "2025-06-11", 16],
-  ["Clipse", "2025-06-02", 13],
-  ["Javier Bardem", "2025-06-02", 8],
-  ["Kaitlyn Dever", "2025-05-26", 8],
-  ["Charles Melton", "2025-05-20", 9],
-  ["Virgil van Dijk", "2025-04-30", 10],
-  ["David Harbour", "2025-04-25", 9],
-  ["Ben Affleck", "2025-03-25", 10],
-  ["Michael B. Jordan2", "2025-02-12", 9],
-  ["Aaron Pierre", "2025-01-22", 7],
-  ["Andrew Garfield2", "2025-01-02", 7],
-  ["Naomi Ackie", "2024-12-30", 8],
-  ["Jesse Eisenberg", "2024-12-04", 9],
-  ["Eve Hewson", "2024-11-15", 9],
-  ["Kobbie Mainoo and Cole Palmer", "2024-11-13", 7],
-  ["Jude Law", "2024-11-12", 7],
-  ["Dwayne Johnson", "2024-11-11", 15],
-  ["Himesh Patel", "2024-10-28", 9],
-  ["Beyoncé", "2024-09-10", 8],
-  ["Stefon Diggs", "2024-09-03", 7],
-  ["George Clooney and Brad Pitt", "2024-08-13", 9],
-  ["Tyrese Haliburton", "2024-07-24", 7],
-  ["Amandla Stenberg", "2024-06-03", 9],
-  ["Nicholas Galitzine", "2024-05-08", 9],
-  ["Lewis Hamilton", "2024-04-01", 9],
-  ["Callum Turner", "2024-03-12", 8],
-  ["Marcus Thuram", "2024-03-05", 8],
-  ["Mark Ruffalo", "2024-02-21", 9],
-  ["Travis Scott", "2023-11-15", 11],
-  ["Kim Kardashian2", "2023-11-14", 11],
-  ["Jeremy Allen White2", "2023-11-13", 7],
-  ["Hailey Bieber", "2023-10-24", 21],
-  ["Timothée Chalamet", "2023-10-17", 17],
-  ["Chris Evans", "2023-09-19", 9],
-  ["Jules Koundé", "2023-09-06", 9],
-  ["Josh O’Connor", "2023-08-30", 9],
-  ["Pharrell Williams2", "2023-08-15", 16],
-  ["Bryan Cranston", "2023-06-22", 8],
-  ["Munroe Bergdorf", "2023-06-12", 7],
-  ["Ryan Gosling", "2023-05-31", 14],
-  ["Toheeb Jimoh", "2023-04-19", 7],
-  ["Donald Glover", "2023-04-04", 13],
-  ["Julio Rodríguez", "2023-03-29", 9],
-  ["Tyler James Williams", "2023-03-22", 7],
-  ["Brett Goldstein", "2023-03-06", 7],
-  ["Erling Haaland", "2023-02-01", 10],
-  ["Allen Iverson", "2023-01-10", 9],
-  ["Kumail Nanjiani", "2023-01-09", 10],
-  ["Jeremy Allen White", "2022-11-30", 9],
-  ["Andrew Garfield", "2022-11-15", 10],
-  ["Sydney Sweeney", "2022-11-11", 7],
-  ["Karim Benzema", "2022-11-02", 8],
-  ["Christian Bale", "2022-10-05", 13],
-  ["Charles Leclerc and Carlos Sainz", "2022-08-09", 11],
-  ["Chiwetel Ejiofor", "2022-04-25", 7],
-  ["Robert Pattinson", "2022-02-08", 13],
-  ["Shohei Ohtani", "2022-01-12", 24],
-  ["Mo Salah", "2022-01-11", 10],
-  ["Stephen Curry", "2022-01-10", 12],
-  ["Matt Damon", "2021-09-08", 13],
-  ["Jason Sudeikis", "2021-07-13", 7],
-  ["A$AP Rocky", "2021-05-19", 12],
-  ["Steven Yeun", "2021-03-08", 8],
-  ["Patrick Mahomes", "2020-07-14", 9],
-  ["Kanye West", "2020-04-16", 9],
-  ["James Harden and Russell Westbrook", "2020-02-18", 8],
-  ["Tyler, the Creator", "2019-11-19", 13],
-  ["Jennifer Lopez", "2019-11-18", 6],
-  ["Pharrell Williams", "2019-10-14", 11],
-  ["Brad Pitt2", "2019-09-16", 12],
-  ["Odell Beckham Jr.", "2019-07-22", 14],
-  ["Seth Rogen", "2019-05-21", 12],
-  ["Keanu Reeves", "2019-04-15", 12],
-  ["Henry Golding", "2018-11-13", 9],
-  ["Michael B. Jordan", "2018-11-12", 8],
-  ["Kylie Jenner and Travis Scott", "2018-07-17", 12],
-  ["Kevin Durant", "2017-11-16", 7],
-  ["Brad Pitt", "2017-05-03", 25],
-  ["Ryan Reynolds", "2016-11-14", 6],
-  ["Kim Kardashian", "2016-06-16", 10],
-  ["David Beckham", "2016-03-16", 8],
-];
+export const covers = {
+  "Amanda Seyfried": {
+    published: "2026-06-15",
+    gallery: 8,
+  },
+  "Johnny Knoxville": {
+    published: "2026-06-11",
+    gallery: 8,
+  },
+  "Charles Melton2": {
+    published: "2026-06-10",
+    gallery: 7,
+  },
+  "Idris Elba": {
+    published: "2026-06-08",
+    transition: true,
+    gallery: 10,
+  },
+  "Matt Damon, Tom Holland and Robert Pattinson": {
+    published: "2026-06-02",
+    gallery: 19,
+    cases: {
+      33: [1, 2, 3, 8, 9, 10],
+      50: [6, 7],
+    },
+  },
+  "GQ All-Stars": {
+    published: "2026-06-01",
+    transition: true,
+    gallery: 38,
+    cases: {
+      33: [1, 2, 3, 4, 5, 6],
+      "1:1": [7, 12, 23],
+      "1:1 right": [23],
+    },
+  },
+  "Josh Hutcherson": {
+    published: "2026-04-20",
+    transition: true,
+    gallery: 11,
+    cases: {
+      50: [4, 5],
+    },
+  },
+  "Paul Anthony Kelly": {
+    published: "2026-02-24",
+    gallery: 12,
+    cases: {
+      50: [8, 9],
+    },
+  },
+  "Lewis Pullman": {
+    published: "2026-02-02",
+    gallery: 9,
+    cases: {
+      50: [4, 5],
+    },
+  },
+  "Pierce Brosnan": {
+    published: "2025-11-17",
+    gallery: 12,
+    cases: {
+      50: [4, 5, 10, 11],
+    },
+  },
+  "Hailey Bieber2": {
+    published: "2025-11-11",
+    gallery: 6,
+    cases: {
+      50: [2, 3],
+    },
+  },
+  "Josh O’Connor2": {
+    published: "2025-10-14",
+    gallery: 10,
+    cases: {
+      50: [9],
+    },
+  },
+  "Shai Gilgeous-Alexander": {
+    published: "2025-10-13",
+    gallery: 16,
+    cases: {
+      50: [3, 4, 6, 7, 9, 12],
+    },
+  },
+  "Glen Powell": {
+    published: "2025-09-09",
+    gallery: 13,
+    cases: {
+      50: [7, 8],
+    },
+  },
+  "Tyshawn Jones": {
+    published: "2025-08-26",
+    gallery: 12,
+    cases: {
+      50: [6, 7],
+    },
+  },
+  "Cooper Hoffman and David Jonsson": {
+    published: "2025-08-19",
+    gallery: 13,
+    cases: {
+      50: [6, 7, 9, 10],
+    },
+  },
+  "Travis Kelce": {
+    published: "2025-08-12",
+    gallery: 15,
+    cases: {
+      50: [1, 2, 10, 11],
+    },
+  },
+  "David Corenswet": {
+    published: "2025-07-07",
+    gallery: 12,
+    cases: {
+      50: [2, 3, 9, 10],
+    },
+  },
+  "Noni Madueke": {
+    published: "2025-06-18",
+    gallery: 12,
+    cases: {
+      50: [1, 2, 4, 5, 7, 8, 10, 11],
+    },
+  },
+  "Teyana Taylor": {
+    published: "2025-06-11",
+    gallery: 16,
+    cases: {
+      50: [4, 5, 8, 9, 11, 12],
+    },
+  },
+  "Jodie Comer": {
+    published: "2025-06-09",
+    transition: true,
+    gallery: 6,
+  },
+  "Jonathan Bailey": {
+    published: "2025-06-05",
+    transition: true,
+    gallery: 7,
+  },
+  "Javier Bardem": {
+    published: "2025-06-02",
+    transition: true,
+    gallery: 8,
+    cases: {
+      50: [4, 5, 8, 9, 11, 12],
+    },
+  },
+  Clipse: {
+    published: "2025-06-02",
+    gallery: 13,
+    cases: {
+      50: [2, 3],
+      33: [7, 8, 9],
+    },
+  },
+  "Brad Pitt, Damson Idris and Lewis Hamilton": {
+    published: "2025-05-28",
+    video: true,
+    gallery: 24,
+    cases: {
+      33: [1, 2, 3],
+      50: [12, 13, 15, 16],
+      video: [6, 19, 23],
+    },
+  },
+  "Stephen Graham": {
+    published: "2025-05-27",
+    transition: true,
+    gallery: 9,
+  },
+  "Kaitlyn Dever": {
+    published: "2025-05-26",
+    gallery: 8,
+    cases: {
+      50: [3, 4],
+    },
+  },
+  "Jon Hamm": {
+    published: "2025-05-21",
+    gallery: 6,
+  },
+  "Charles Melton": {
+    published: "2025-05-20",
+    transition: true,
+    gallery: 9,
+    cases: {
+      50: [3, 4, 7, 8],
+    },
+  },
+  "Virgil van Dijk": {
+    published: "2025-04-30",
+    transition: true,
+    gallery: 12,
+  },
+  "David Harbour": {
+    published: "2025-04-25",
+    transition: true,
+    gallery: 9,
+  },
+  "Ben Affleck": {
+    published: "2025-03-25",
+    gallery: 10,
+  },
+  "Michael B. Jordan2": {
+    published: "2025-02-12",
+    gallery: 9,
+    cases: {
+      50: [7, 8],
+    },
+  },
+  "Aaron Pierre": {
+    published: "2025-01-22",
+    gallery: 7,
+  },
+  "Maurizio Lombardi": {
+    published: "2025-01-14",
+    transition: true,
+    gallery: 8,
+  },
+  "Novak Djokovic": {
+    published: "2025-01-09",
+    row: true,
+    gallery: 13,
+    cases: {
+      50: [11, 12],
+    },
+  },
+  "Andrew Garfield2": {
+    published: "2025-01-02",
+    row: true,
+    gallery: 7,
+    cases: {
+      50: [4, 5],
+    },
+  },
+  "Naomi Ackie": {
+    published: "2024-12-30",
+    transition: true,
+    gallery: 8,
+    cases: {
+      50: [4, 5],
+    },
+  },
+  "Jesse Eisenberg": {
+    published: "2024-12-04",
+    gallery: 9,
+    cases: {
+      50: [4, 7, 8],
+    },
+  },
+  "Eve Hewson": {
+    published: "2024-11-15",
+    transition: true,
+    gallery: 9,
+    cases: {
+      "1:1": [9],
+    },
+  },
+  "Kobbie Mainoo and Cole Palmer": {
+    published: "2024-11-13",
+    row: true,
+    gallery: 7,
+  },
+  "Jude Law": {
+    published: "2024-11-12",
+    transition: true,
+    gallery: 7,
+  },
+  "Dwayne Johnson": {
+    published: "2024-11-11",
+    noHeader: true,
+    gallery: 16,
+    cases: {
+      50: [2, 3, 5, 6, 9, 10, 12, 13],
+    },
+  },
+  "Himesh Patel": {
+    published: "2024-10-28",
+    transition: true,
+    gallery: 9,
+    cases: {
+      50: [4, 5, 7, 8],
+    },
+  },
+  Beyoncé: {
+    published: "2024-09-10",
+    gallery: 8,
+  },
+  "Stefon Diggs": {
+    published: "2024-09-03",
+    gallery: 7,
+  },
+  "George Clooney and Brad Pitt": {
+    published: "2024-08-13",
+    gallery: 11,
+    cases: {
+      50: [7, 8],
+    },
+  },
+  "Tyrese Haliburton": {
+    published: "2024-07-24",
+    gallery: 6,
+    cases: {
+      50: [3, 4],
+    },
+  },
+  "Tosin Cole": {
+    published: "2024-07-08",
+    gallery: 9,
+    cases: {
+      50: [2, 3, 5, 6],
+    },
+  },
+  "Amandla Stenberg": {
+    published: "2024-06-03",
+    gallery: 9,
+  },
+  "Anya Taylor-Joy": {
+    published: "2024-05-22",
+    transition: true,
+    gallery: 7,
+  },
+  "Nicholas Galitzine": {
+    published: "2024-05-08",
+    gallery: 9,
+    cases: {
+      50: [4, 5],
+    },
+  },
+  "Kirsten Dunst": {
+    published: "2024-04-23",
+    gallery: 7,
+  },
+  "Lewis Hamilton": {
+    published: "2024-04-01",
+    gallery: 9,
+    cases: {
+      50: [5, 6],
+    },
+  },
+  "Callum Turner": {
+    published: "2024-03-12",
+    gallery: 8,
+    cases: {
+      50: [4, 5],
+    },
+  },
+  "Marcus Thuram": {
+    published: "2024-03-05",
+    transition: true,
+    gallery: 8,
+  },
+  "Drew Starkey": {
+    published: "2024-02-28",
+    gallery: 6,
+    cases: {
+      50: [2, 3],
+    },
+  },
+  "Mark Ruffalo": {
+    published: "2024-02-21",
+    gallery: 8,
+    cases: {
+      50: [5, 6],
+    },
+  },
+  "Daniel Kaluuya": {
+    published: "2024-01-23",
+    gallery: 7,
+  },
+  "Kylian Mbappé": {
+    published: "2024-01-17",
+    gallery: 6,
+  },
+  "André 3000": {
+    published: "2023-11-16",
+    video: true,
+    gallery: 11,
+    cases: {
+      50: [4, 5],
+    },
+  },
+  "Travis Scott": {
+    published: "2023-11-15",
+    gallery: 10,
+    cases: {
+      50: [4, 5],
+    },
+  },
+  "Kim Kardashian2": {
+    published: "2023-11-14",
+    gallery: 11,
+    cases: {
+      50: [9, 10],
+    },
+  },
+  "Jeremy Allen White2": {
+    published: "2023-11-13",
+    gallery: 7,
+  },
+  "Hailey Bieber": {
+    published: "2023-10-24",
+    gallery: 21,
+    cases: {
+      50: [3, 4, 5, 6, 7, 8, 10, 11, 14, 15, 17, 18],
+    },
+  },
+  "Timothée Chalamet": {
+    published: "2023-10-17",
+    gallery: 20,
+    cases: {
+      25: [2, 3, 4, 5],
+      50: [10, 11],
+    },
+  },
+  "Chris Evans": {
+    published: "2023-09-19",
+    gallery: 9,
+  },
+  "Jules Koundé": {
+    published: "2023-09-06",
+    gallery: 9,
+  },
+  "Josh O’Connor": {
+    published: "2023-08-30",
+    gallery: 9,
+  },
+  "Pharrell Williams2": {
+    published: "2023-08-15",
+    gallery: 16,
+    cases: {
+      50: [7, 8, 10, 11],
+    },
+  },
+  "Bryan Cranston": {
+    published: "2023-06-22",
+    transition: true,
+    gallery: 9,
+  },
+  "Chris Hemsworth": {
+    published: "2023-06-14",
+    transition: true,
+    gallery: 7,
+  },
+  "Munroe Bergdorf": {
+    published: "2023-06-12",
+    transition: true,
+    gallery: 7,
+  },
+  "Ryan Gosling": {
+    published: "2023-05-31",
+    gallery: 14,
+    cases: {
+      50: [2, 3, 6, 7, 9, 10],
+    },
+  },
+  "Will Poulter": {
+    published: "2023-05-09",
+    transition: true,
+    gallery: 6,
+  },
+  "Toheeb Jimoh": {
+    published: "2023-04-19",
+    transition: true,
+    gallery: 7,
+  },
+  "Donald Glover": {
+    published: "2023-04-04",
+    transition: true,
+    gallery: 14,
+    cases: {
+      50: [7, 8, 10, 11],
+    },
+  },
+  "Julio Rodríguez": {
+    published: "2023-03-29",
+    gallery: 10,
+  },
+  "Tyler James Williams": {
+    published: "2023-03-22",
+    transition: true,
+    gallery: 7,
+  },
+  "Brett Goldstein": {
+    published: "2023-03-06",
+    transition: true,
+    gallery: 7,
+  },
+  "Erling Haaland": {
+    published: "2023-02-01",
+    transition: true,
+    gallery: 9,
+  },
+  "Rupert Grint": {
+    published: "2023-01-30",
+    transition: true,
+    gallery: 6,
+  },
+  "Allen Iverson": {
+    published: "2023-01-10",
+    gallery: 9,
+    cases: {
+      50: [2, 3, 4, 5],
+    },
+  },
+  "Kumail Nanjiani": {
+    published: "2023-01-09",
+    transition: true,
+    gallery: 9,
+  },
+  "Jeremy Allen White": {
+    published: "2022-11-30",
+    gallery: 9,
+    cases: {
+      50: [2, 3, 5, 6],
+    },
+  },
+  "Andrew Garfield": {
+    published: "2022-11-15",
+    transition: true,
+    gallery: 11,
+    cases: {
+      50: [6, 7],
+    },
+  },
+  Stormzy: {
+    published: "2022-11-14",
+    transition: true,
+    gallery: 6,
+  },
+  "The new gods of the World Cup": {
+    published: "2022-11-11",
+    gallery: 12,
+  },
+  "Jack Harlow": {
+    published: "2022-11-10",
+    transition: true,
+    gallery: 7,
+  },
+  "Trent Alexander-Arnold": {
+    published: "2022-11-04",
+    gallery: 6,
+  },
+  "Karim Benzema": {
+    published: "2022-11-02",
+    gallery: 7,
+  },
+  "Christian Bale": {
+    published: "2022-10-05",
+    gallery: 13,
+    cases: {
+      50: [5, 6],
+    },
+  },
+  Tems: {
+    published: "2022-09-21",
+    transition: true,
+    gallery: 6,
+  },
+  "Ferrari Drivers Charles Leclerc and Carlos Sainz": {
+    published: "2022-08-09",
+    gallery: 11,
+    cases: {
+      50: [5, 6],
+      33: [7, 8, 9],
+    },
+  },
+  Quavo: {
+    published: "2022-07-13",
+    gallery: 10,
+  },
+  "Rowan Atkinson": {
+    published: "2022-06-24",
+    transition: true,
+    gallery: 6,
+  },
+  "Dominic Fike": {
+    published: "2022-05-31",
+    transition: true,
+    gallery: 8,
+    cases: {
+      50: [2, 3, 5, 6],
+    },
+  },
+  "Chiwetel Ejiofor": {
+    published: "2022-04-25",
+    transition: true,
+    gallery: 7,
+  },
+  Gunna: {
+    published: "2022-04-01",
+    transition: true,
+    gallery: 9,
+    cases: {
+      50: [5, 6, 8, 9],
+    },
+  },
+  "Robert Pattinson": {
+    published: "2022-02-08",
+    transition: true,
+    gallery: 14,
+    cases: {
+      50: [1, 2, 5, 6, 12, 13],
+    },
+  },
+  "Stephen Curry": {
+    published: "2022-01-13",
+    gallery: 12,
+    cases: {
+      50: [3, 4, 9, 10],
+    },
+  },
+  "Shohei Ohtani": {
+    published: "2022-01-12",
+    gallery: 24,
+    cases: {
+      50: [2, 3, 4, 5, 7, 8, 12, 13, 17, 18, 19, 20, 23, 24],
+      33: [9, 10, 11],
+    },
+  },
+  "Mo Salah": {
+    published: "2022-01-11",
+    gallery: 10,
+    cases: {
+      50: [1, 2, 3, 4],
+    },
+  },
+  "Matt Damon": {
+    published: "2021-09-08",
+    gallery: 13,
+    cases: {
+      50: [7, 8],
+    },
+  },
+  "Jason Sudeikis": {
+    published: "2021-07-13",
+    gallery: 7,
+  },
+  "A$AP Rocky": {
+    published: "2021-05-19",
+    gallery: 12,
+  },
+  "Steven Yeun": {
+    published: "2021-03-08",
+    gallery: 8,
+  },
+  "Modern Lovers Issue": {
+    published: "2021-02-11",
+    transition: true,
+    gallery: 24,
+    cases: {
+      50: [11, 12, 21, 22],
+      33: [1, 2, 3],
+    },
+  },
+  "Patrick Mahomes": {
+    published: "2020-07-14",
+    gallery: 9,
+    cases: {
+      50: [2, 3, 5, 6],
+    },
+  },
+  "Kanye West": {
+    published: "2020-04-16",
+    gallery: 9,
+  },
+  "James Harden and Russell Westbrook": {
+    published: "2020-02-18",
+    gallery: 8,
+    cases: {
+      50: [4, 5],
+    },
+  },
+  "Tyler, the Creator": {
+    published: "2019-11-19",
+    gallery: 13,
+    cases: {
+      50: [4, 5, 11, 12],
+    },
+  },
+  "Jennifer Lopez": {
+    published: "2019-11-18",
+    gallery: 6,
+    cases: {
+      50: [4, 5],
+    },
+  },
+  "Pharrell Williams": {
+    published: "2019-10-14",
+    transition: true,
+    gallery: 12,
+    cases: {
+      50: [2, 3],
+    },
+  },
+  "Brad Pitt2": {
+    published: "2019-09-16",
+    transition: true,
+    gallery: 12,
+    cases: {
+      50: [3, 4, 7, 8, 9, 10],
+    },
+  },
+  "Odell Beckham Jr.": {
+    published: "2019-07-22",
+    video: true,
+    gallery: 15,
+    cases: {
+      50: [5, 6, 11, 12],
+    },
+  },
+  "Seth Rogen": {
+    published: "2019-05-21",
+    transition: true,
+    gallery: 13,
+    cases: {
+      50: [3, 4, 5, 6],
+    },
+  },
+  "Keanu Reeves": {
+    published: "2019-04-15",
+    transition: true,
+    gallery: 13,
+    cases: {
+      50: [3, 4, 5, 6, 10, 11],
+    },
+  },
+  "Frank Ocean": {
+    published: "2019-01-10",
+    transition: true,
+    gallery: 6,
+    cases: {
+      50: [4, 5],
+    },
+  },
+  "Kim Kardashian": {
+    published: "2016-06-16",
+    gallery: 10,
+    cases: {
+      50: [3, 4, 7, 8],
+    },
+  },
+};

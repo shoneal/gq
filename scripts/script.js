@@ -1,17 +1,33 @@
 import { covers } from "./covers.js";
 
-const basicLink = "https://shoneal.github.io/gq/images/covers"; // Главная ссылка
-
-const header = document.querySelector("header");
-const mainLink = header.querySelector(".logo-clickable");
-const yearsContainer = header.querySelector(".years");
-const main = document.querySelector("main");
-const summaryCollection = document.querySelector(".summary-collection");
-const popup = document.querySelector(".popup");
-const popupHeader = popup.querySelector(".header");
-const closeBtn = popup.querySelector(".logo");
-const template = document.querySelector("template");
-
+//
+//
+const basicLink = document.querySelector('meta[property="og:url"]').content; // Главная ссылка
+const bodyElements = {
+  header: document.querySelector("body > header"),
+  resetButtons: document.querySelectorAll('a[data-id="base-clickable"]'),
+  GQlogos: document.querySelectorAll(".logo"),
+  yearsContainer: document.querySelector(".one-nav-container"),
+  main: document.querySelector("main"),
+  summaryCollection: document.querySelector(".summary-collection-content"),
+  footers: document.querySelectorAll("footer"),
+  popup: document.querySelector(".popup"),
+  popupContent: document.querySelector(".popup-content"),
+  GQlogo: document.getElementById("GQ-logo"),
+  itemTemplate: document.getElementById("summary-item-template"),
+  pictureTemplate: document.getElementById("picture-template"),
+}; // Элементы тела страницы
+const popupElements = {
+  header: bodyElements.popup.querySelector(".header"),
+  closeButton: bodyElements.popup.querySelector(".header .logo"),
+  hed: bodyElements.popupContent.querySelector(".content-header"),
+  hedContainer: bodyElements.popupContent.querySelector(
+    ".content-header-container",
+  ),
+  title: bodyElements.popupContent.querySelector("h1"),
+  date: bodyElements.popupContent.querySelector("time"),
+  articleBody: bodyElements.popupContent.querySelector(".article-body"),
+}; // Элементы попапа
 const months = [
   "January",
   "February",
@@ -26,23 +42,36 @@ const months = [
   "November",
   "December",
 ]; // Названия месяцев для форматирования даты
-function formatDate(dateString) {
+const formatDate = (dateString) => {
   const [year, month, day] = dateString.split("-");
-  return `${parseInt(day)} ${months[parseInt(month) - 1]} ${year}`;
-} // Форматируем дату
-function generateSlug(title) {
-  return title
+  return `${+day} ${months[+month - 1]} ${year}`;
+}; // Форматируем дату
+const textToSlug = (text) => {
+  return text
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\$/g, "s") // $ → s (явное правило)
-    .replace(/['’]/g, "-")
-    .replace(/[^a-z0-9\s-]/g, "") // остальные спецсимволы удаляем
+    .replace(/\$/g, "s")
+    .replace(/[^a-z0-9\s-]/g, "")
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
-} // Создаёт slug для URL изображения
-const setupImageWithContainer = (img) => {
+}; // Текст в URL-формат
+const deleteNum = (name) => name.replace(/\d+(?=\D)|(?<=\D)\d+/g, "").trim(); // Удаление слипшихся с текстом цифр
+const buildUrl = (type, name, mark = "", { mobile = false } = {}) => {
+  const slug = textToSlug(name);
+  const mobilePath = mobile ? "/mobile" : "";
+
+  switch (type) {
+    case "cover":
+      return `${basicLink}images/covers/${slug}/cover.webp`;
+    case "video":
+      return `${basicLink}video/${slug}/${mark}.mp4`;
+    default:
+      return `${basicLink}images/covers/${slug}${mobilePath}/${mark}.webp`;
+  }
+}; // Генерация URL
+const showImage = (img) => {
   const onLoadOrError = () => {
     img.style.opacity = "1";
     img.removeEventListener("load", onLoadOrError);
@@ -52,288 +81,338 @@ const setupImageWithContainer = (img) => {
   if (img.complete) {
     onLoadOrError();
   } else {
-    img.addEventListener("load", onLoadOrError);
-    img.addEventListener("error", onLoadOrError);
+    img.addEventListener("load", onLoadOrError, { once: true });
+    img.addEventListener("error", onLoadOrError, { once: true });
   }
-}; // Функция для настройки прозрачности изображения
-const clearContainer = (el) => el.replaceChildren?.() || (el.innerHTML = ""); // Очистка divoв
+}; // Функция для настройки загрузки изображения
+const createVideoElement = (key, mark) => {
+  const video = document.createElement("video");
+  video.src = buildUrl("video", key, mark);
+  video.preload = "auto";
+  video.loop = video.muted = video.autoplay = video.playsInline = true;
+  return video;
+}; // Создание видеоэлемента
+const createImageTemplate = () => {
+  const template = bodyElements.pictureTemplate.content.cloneNode(true);
+  const picture = template.querySelector("picture");
+  const sources = picture.querySelectorAll("source");
+  const img = picture.querySelector("img");
+
+  return { template, picture, sources, img };
+}; // Создание базового шаблона изображения
+
+//
+//
+//
 const openPopup = (popup) => {
   const body = document.body;
   const scrollPosition = window.scrollY;
   body.dataset.scrollPosition = scrollPosition;
   body.style.top = `-${scrollPosition}px`;
   body.classList.add("scroll-lock");
-  popup.classList.add("popup_is-opened");
+  popup.classList.add("is-open");
   document.addEventListener("keydown", closePopupByEsc);
-}; // Открытие popup
+}; // Открытие модуля
 const closePopup = (popup) => {
   const body = document.body;
   const scrollPosition = body.dataset.scrollPosition;
   body.style.top = "";
   body.classList.remove("scroll-lock");
   window.scrollTo(0, scrollPosition);
-  popup.classList.remove("popup_is-opened");
-  popup.querySelectorAll("img").forEach((img) => {
-    img.src = "";
-  });
-  popup.querySelectorAll("source").forEach((source) => {
-    source.srcset = "";
-  });
+  popup.classList.remove("is-open");
   document.removeEventListener("keydown", closePopupByEsc);
-}; // Закрытие popup
-const closePopupByEsc = (e) =>
-  e.key === "Escape" && closePopup(document.querySelector(".popup_is-opened")); // Закрытие popup по Esc
-closeBtn.addEventListener("click", () => closePopup(popup)); // Клик по закрытию popup
-
-const renderItems = (items) => {
-  clearContainer(summaryCollection);
-  const fragment = document.createDocumentFragment();
-
-  items.forEach(([title, date, number]) => {
-    const clone = template.content.cloneNode(true);
-    const rootElement = clone.firstElementChild;
-    const path = `${basicLink}/${generateSlug(title)}/`;
-
-    const img = rootElement.querySelector(".summary-item-image");
-    img.style.opacity = "0";
-    img.src = `${path}cover.webp`;
-    img.alt = title.replace(/[0-9]/g, "");
-    setupImageWithContainer(img);
-
-    rootElement.querySelector(".summary-item-hed").textContent = title.replace(
-      /[0-9]/g,
-      "",
-    );
-    rootElement.querySelector(".summary-item-publish-date").textContent =
-      formatDate(date);
-
-    rootElement.addEventListener("click", (e) => {
-      const contentHeader = popup.querySelector(".content-header");
-      const picture = contentHeader.querySelector(
-        ".content-header-image-picture",
-      );
-      const mobileSource = picture.querySelector(
-        'source[media="(max-width: 767px)"]',
-      );
-      const desktopSource = picture.querySelector(
-        'source[media="(min-width: 768px)"]',
-      );
-      const imgEl = picture.querySelector("img");
-      const time = contentHeader.querySelector(".content-publish-date");
-      const name = contentHeader.querySelector(".content-header-hed");
-      const wrapper = popup.querySelector(".content-embed-wrapper");
-      const container = popup.querySelector(".group");
-
-      desktopSource.srcset = imgEl.src = `${path}header.webp`;
-      mobileSource.srcset = `${path}cover.webp`;
-      imgEl.alt = title.replace(/[0-9]/g, "");
-      imgEl.addEventListener("load", () => {
-        contentHeader.classList.toggle(
-          "row",
-          imgEl.naturalWidth <= imgEl.naturalHeight,
-        );
-      });
-      time.textContent = formatDate(date);
-      name.textContent = title.replace(/[0-9]/g, "");
-
-      wrapper.style.opacity = "0";
-      wrapper.src = `${path}1.webp`;
-      wrapper.alt = title.replace(/[0-9]/g, "");
-      setupImageWithContainer(wrapper);
-
-      container.style.opacity = "0";
-      clearContainer(container);
-      const images = [];
-
-      for (let i = 2; i <= number; i++) {
-        const img = document.createElement("img");
-        img.src = `${path}/${i}.webp`;
-        img.alt = title.replace(/[0-9]/g, "");
-        img.loading = "lazy";
-
-        container.append(img);
-        images.push(img);
-      }
-
-      const assignClasses = () => {
-        let verticalGroup = [];
-
-        images.forEach((img, index) => {
-          const isHorizontal = img.naturalWidth >= img.naturalHeight;
-
-          if (isHorizontal) {
-            img.classList.add("horizontal");
-            if (verticalGroup.length > 0) {
-              applyAloneImageToLast(verticalGroup);
-              verticalGroup = [];
-            }
-          } else {
-            verticalGroup.push(img);
-          }
-
-          if (index === images.length - 1) {
-            applyAloneImageToLast(verticalGroup);
-          }
-        });
-
-        container.style.opacity = "1";
-      };
-
-      const applyAloneImageToLast = (group) => {
-        if (group.length % 2 === 1) {
-          group[group.length - 1].classList.add("alone-image");
-        }
-      };
-
-      Promise.all(
-        images.map((img) =>
-          img.complete
-            ? Promise.resolve()
-            : new Promise((resolve) => {
-                img.addEventListener("load", resolve, { once: true });
-                img.addEventListener("error", resolve, { once: true });
-              }),
-        ),
-      ).then(assignClasses);
-
-      openPopup(popup);
-      popup.scrollTop = 0;
-    });
-    fragment.appendChild(clone);
+}; // Закрытие модуля
+const closePopupByEsc = (e) => {
+  if (e.key === "Escape") closePopup(document.querySelector(".is-open"));
+}; // Закрытие модуля по Esc
+const addCloseOverlayListener = (element) => {
+  element.addEventListener("click", function (e) {
+    if (e.target === e.currentTarget) closePopup(e.currentTarget);
   });
+}; // Закрытие модуля при нажатии вне его
+popupElements.closeButton.addEventListener("click", () => {
+  closePopup(bodyElements.popup);
+}); // Обработчик на кнопку закрытия модуля
 
-  summaryCollection.appendChild(fragment);
-}; // Рендерит карточки в контейнер
+//
+//
+//
+const updateStickinessHeader = (source, prop, header, isActive) => {
+  if (!header) return;
 
-const updateActiveState = (element) => {
-  document
-    .querySelectorAll(".text-clickable, .logo-clickable")
-    .forEach((link) => {
-      link.classList.remove("active");
-    });
+  let last = source[prop];
+  const sensitivity = 4;
 
-  if (element) {
-    element.classList.add("active");
-    if (element.matches(".text-clickable-main, .logo-clickable")) {
-      document.querySelector(".text-clickable-main")?.classList.add("active");
-      document.querySelector(".logo-clickable")?.classList.add("active");
-    }
-  }
+  source.addEventListener(
+    "scroll",
+    () => {
+      window.requestAnimationFrame(() => {
+        const current = source[prop];
+        const delta = current - last;
 
-  if (element.matches(".text-clickable-main, .logo-clickable")) {
-    const sectionHeaderWrapper = document.querySelector(
-      ".section-header-wrapper",
-    );
-    document.querySelector(".section-header-wrapper")?.remove();
-  } else {
-    let wrapper = document.querySelector(".section-header-wrapper");
+        if (isActive?.(current) === false) {
+          last = current;
+          return;
+        }
 
-    if (!wrapper) {
-      wrapper = document.createElement("div");
-      wrapper.className = "section-header-wrapper";
-      main.prepend(wrapper);
-    }
+        if (current === 0) {
+          header.classList.remove("is-hidden");
+          last = current;
+          return;
+        }
 
-    if (wrapper) {
-      let headerEl = wrapper.querySelector(".section-header");
-      if (!headerEl) {
-        headerEl = document.createElement("h1");
-        headerEl.className = "section-header";
-        wrapper.appendChild(headerEl);
-      }
-      headerEl.textContent = element.textContent;
-    }
-  }
-}; // Активная кнопка
-const handleClick = (e) => {
-  let target =
-    e.target.closest(".text-clickable") ||
-    (e.target.matches(".logo-clickable") ? mainLink : null);
-  if (!target || target.classList.contains("active")) return;
+        if (Math.abs(delta) < sensitivity) {
+          last = current;
+          return;
+        }
 
-  const filteredItems = target.matches(".text-clickable-main, .logo-clickable")
-    ? covers
-    : covers.filter(([_, date]) => date.startsWith(target.textContent));
+        const shouldHide = current > last;
 
-  updateActiveState(target);
-  renderItems(filteredItems);
-  window.scrollTo({ top: 0, behavior: "auto" });
-}; // Нажатие на года
-const createYearLinks = () => {
+        if (shouldHide) {
+          header.classList.add("is-hidden");
+        } else {
+          header.classList.remove("is-hidden");
+        }
+
+        last = current;
+      });
+    },
+    { passive: true },
+  );
+}; // Функция обновления состояния шапок при скролле
+const additionYearsHeader = (data, container) => {
   const years = [
-    ...new Set(covers.map(([_, date]) => date.split("-")[0])),
+    ...new Set(
+      Object.values(data).map(({ published }) => published.slice(0, 4)),
+    ),
   ].sort((a, b) => b - a);
-  const fragment = document.createDocumentFragment();
 
   years.forEach((year) => {
     const link = document.createElement("a");
-    link.className = "text-clickable";
+    link.className = "one-nav-clickable";
     link.textContent = year;
-    fragment.appendChild(link);
+    container.appendChild(link);
   });
+}; // Года в header
+const createTitleYear = (container, year) => {
+  const heading = container.querySelector("h1.year-header-hed");
 
-  yearsContainer.appendChild(fragment);
-}; // Добавление годов в HTML
+  if (heading) {
+    heading.textContent = year.textContent.trim();
+  } else {
+    const newHeading = document.createElement("h1");
+    newHeading.className = "year-header-hed";
+    newHeading.textContent = year.textContent.trim();
+    container.insertBefore(newHeading, container.firstChild);
+  }
+}; // Создание заголовка с выбранным годом
+const createCovers = (data, container) => {
+  container.innerHTML = "";
+
+  const activeYear =
+    document
+      .querySelector(
+        '.one-nav-container a.active:not([data-id="base-clickable"])',
+      )
+      ?.textContent.trim() || null;
+
+  const fragment = document.createDocumentFragment();
+
+  Object.entries(data)
+    .filter(
+      ([, person]) =>
+        !activeYear || person.published.split("-")[0] === activeYear,
+    )
+    .forEach(([key, data]) => {
+      const clone = bodyElements.itemTemplate.content.cloneNode(true);
+
+      const [item, img, title, date] = clone.querySelectorAll(
+        ".summary-item, img, h2, time",
+      );
+
+      item.dataset.name = key;
+
+      img.style.opacity = "0";
+      img.src = buildUrl("cover", key);
+      img.alt = deleteNum(key);
+      showImage(img);
+
+      title.textContent = deleteNum(key);
+      date.textContent = formatDate(data.published);
+
+      fragment.appendChild(clone);
+    });
+
+  container.appendChild(fragment);
+}; // Функция выведения covers на страницу
+const openCover = (key) => {
+  const data = covers[key];
+
+  const { hed, hedContainer, title, date, articleBody } = popupElements;
+  const popup = bodyElements.popup;
+
+  hedContainer.innerHTML = "";
+  articleBody.innerHTML = "";
+
+  if (data.video) {
+    hedContainer.appendChild(createVideoElement(key, "header"));
+  } else if (!data.noHeader) {
+    const { template, picture, sources, img } = createImageTemplate();
+
+    const mobileUrl = buildUrl("img", key, "header", { mobile: true });
+
+    const tempImg = new Image();
+    tempImg.onload = () => {
+      if (tempImg.height > tempImg.width) {
+        hedContainer.classList.add("grid-wrapper");
+      } else {
+        hedContainer.classList.remove("grid-wrapper");
+      }
+
+      if (data.transition) {
+        sources[0].srcset = buildUrl("cover", key);
+      } else {
+        sources[0].srcset = mobileUrl;
+      }
+      sources[1].srcset = buildUrl("img", key, "header");
+      img.style.opacity = "0";
+      img.src = sources[1].srcset;
+      img.alt = deleteNum(key);
+      showImage(img);
+
+      hedContainer.appendChild(template);
+    };
+    tempImg.src = mobileUrl;
+  }
+
+  hed.classList.toggle("line", !!data.row);
+  title.textContent = deleteNum(key);
+  date.textContent = formatDate(data.published);
+
+  const fragment = document.createDocumentFragment();
+
+  for (let i = 1; i <= data.gallery; i++) {
+    const div = document.createElement("div");
+    div.classList.add("asset-embed");
+
+    const sizeClass = data.cases["50"]?.includes(i)
+      ? "width-50"
+      : data.cases["33"]?.includes(i)
+        ? "width-33"
+        : data.cases["25"]?.includes(i)
+          ? "width-25"
+          : "width-100";
+    div.classList.add(sizeClass);
+    div.classList.toggle("aspect-ratio-1", data.cases["1:1"]?.includes(i));
+    div.classList.toggle(
+      "object-position-right",
+      data.cases["1:1 right"]?.includes(i),
+    );
+
+    if (data.cases.video?.includes(i)) {
+      div.appendChild(createVideoElement(key, index));
+    } else {
+      const { template, picture, sources, img } = createImageTemplate();
+
+      sources[0].srcset = buildUrl("image", key, i, { mobile: true });
+      sources[1].srcset = buildUrl("image", key, i);
+      img.style.opacity = "0";
+      img.src = sources[0].srcset;
+      img.alt = deleteNum(key);
+      showImage(img);
+
+      div.appendChild(template);
+    }
+
+    fragment.appendChild(div);
+  }
+
+  articleBody.appendChild(fragment);
+  popup.scrollTop = 0;
+  openPopup(popup);
+  addCloseOverlayListener(popup);
+}; // Открытие модального окна с галереей
+
+//
+//
+//
+bodyElements.resetButtons.forEach((button) => {
+  const { yearsContainer, main, summaryCollection, resetButtons } =
+    bodyElements;
+
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    yearsContainer
+      .querySelectorAll('a:not([data-id="base-clickable"])')
+      .forEach((l) => l.classList.remove("active"));
+
+    const heading = main.querySelector("h1.year-header-hed");
+    heading?.remove();
+
+    createCoverBlocks(covers, summaryCollection);
+
+    resetButtons.forEach((btn) => btn.classList.add("active"));
+
+    window.scrollTo(0, 0);
+  });
+}); // Обработчик для кнопок reset
+bodyElements.yearsContainer.addEventListener("click", (e) => {
+  const link = e.target.closest('a:not([data-id="base-clickable"])');
+  if (!link) return;
+
+  const { yearsContainer, resetButtons, summaryCollection, main } =
+    bodyElements;
+
+  e.preventDefault();
+
+  yearsContainer
+    .querySelectorAll('a:not([data-id="base-clickable"])')
+    .forEach((l) => l.classList.remove("active"));
+  link.classList.add("active");
+
+  resetButtons.forEach((btn) => btn.classList.remove("active"));
+
+  createCovers(covers, summaryCollection);
+  createTitleYear(main, link);
+  window.scrollTo(0, 0);
+}); // Обработчик на года
+bodyElements.summaryCollection.addEventListener("click", (e) => {
+  const cover = e.target.closest(".summary-item");
+  if (!cover) return;
+
+  openCover(cover.getAttribute("data-name"));
+}); // Обработчик на клики по профилям
+bodyElements.footers.forEach((element) => {
+  element.addEventListener("click", (e) => {
+    if (!e.target.closest("a")) return;
+
+    e.preventDefault();
+
+    if (e.target.closest(".popup")) {
+      bodyElements.popupContent.scrollTop = 0;
+    } else {
+      window.scrollTo(0, 0);
+    }
+  });
+}); // Обработчики на логотипы в footer
 
 document.addEventListener("DOMContentLoaded", () => {
+  const { header, GQlogo, GQlogos, yearsContainer, summaryCollection, popup } =
+    bodyElements;
+
   if (localStorage.getItem("theme") === "dark")
     document.body.classList.add("dark-theme"); // Тема
 
-  const sourceSvg = document.querySelector(".logo-clickable.logo svg");
-  if (!sourceSvg) return;
-  document.querySelectorAll(".logo").forEach((el) => {
-    if (!el.querySelector("svg")) {
-      el.appendChild(sourceSvg.cloneNode(true));
-    }
-  }); // Svg во все Logo
+  const svgTemplate = GQlogo.content.cloneNode(true);
+  GQlogos.forEach((link) => link.appendChild(svgTemplate.cloneNode(true))); // svg GQ в нужные ссылки
 
-  createYearLinks(covers);
-  renderItems(covers);
-  updateActiveState(mainLink);
-  yearsContainer.addEventListener("click", handleClick);
-  mainLink.addEventListener("click", handleClick);
-
-  let lastScrollY = 0;
-  let lastPopupScrollY = 0;
-  window.addEventListener("scroll", () => {
-    const currentY = window.scrollY;
-
-    if (currentY === 0) {
-      header?.classList.remove("header-hide");
-    } else if (currentY !== lastScrollY) {
-      header?.classList.toggle("header-hide", currentY > lastScrollY);
-    }
-
-    lastScrollY = currentY;
-  });
+  updateStickinessHeader(window, "scrollY", header); // Обработчик скролла
   if (popup) {
-    popup.addEventListener("scroll", () => {
-      const currentY = popup.scrollTop;
-
-      if (currentY === 0) {
-        popupHeader.classList.remove("header-hide");
-      } else if (currentY !== lastPopupScrollY) {
-        popupHeader.classList.toggle(
-          "header-hide",
-          currentY > lastPopupScrollY,
-        );
-      }
-
-      lastPopupScrollY = currentY;
-    });
-  } // Скрытие header'ов при скроллах страницы и popup
-
-  document.querySelectorAll(".footer").forEach((element) => {
-    element.addEventListener("click", (e) => {
-      if (!e.target.closest("a")) return;
-
-      e.preventDefault();
-
-      if (e.target.closest(".popup")) {
-        popup.scrollTop = 0;
-      } else {
-        window.scrollTo(0, 0);
-      }
-    });
-  }); // Обработчики на логотип в footer
+    updateStickinessHeader(popup, "scrollTop", popupElements.header, () =>
+      popup.classList.contains("is-open"),
+    );
+  } // Обработчик скролла popup
+  additionYearsHeader(covers, yearsContainer); // Года в header
+  createCovers(covers, summaryCollection); // Ввыведение covers на страницу
 });
