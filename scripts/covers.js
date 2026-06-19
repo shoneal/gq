@@ -443,7 +443,7 @@ export const covers = {
     transition: true,
     gallery: 9,
   },
-  "Chris Hemsworth": {
+  "Chris Hemsworth2": {
     published: "2023-06-14",
     transition: true,
     gallery: 7,
@@ -739,6 +739,47 @@ export const covers = {
       50: [4, 5],
     },
   },
+  "Henry Golding": {
+    published: "2018-11-13",
+    transition: true,
+    gallery: 9,
+    cases: {
+      50: [3, 4, 7, 8],
+    },
+  },
+  "Michael B. Jordan": {
+    published: "2018-11-12",
+    transition: true,
+    gallery: 8,
+    cases: {
+      50: [6, 7],
+    },
+  },
+  "Chris Hemsworth": {
+    published: "2018-08-20",
+    transition: true,
+    gallery: 11,
+    cases: {
+      50: [2, 3, 5, 6, 9, 10],
+    },
+  },
+  "Kylie Jenner and Travis Scott": {
+    published: "2018-07-17",
+    video: true,
+    gallery: 14,
+    cases: {
+      50: [8, 9, 13, 14],
+      33: [5, 6, 7],
+    },
+  },
+  "James Harden": {
+    published: "2018-04-12",
+    video: true,
+    gallery: 10,
+    cases: {
+      50: [1, 2, 4, 5],
+    },
+  },
   "Kim Kardashian": {
     published: "2016-06-16",
     gallery: 10,
@@ -747,9 +788,6 @@ export const covers = {
     },
   },
 
-  // ["Henry Golding", "2018-11-13", 9],
-  // ["Michael B. Jordan", "2018-11-12", 8],
-  // ["Kylie Jenner and Travis Scott", "2018-07-17", 12],
   // ["Kevin Durant", "2017-11-16", 7],
   // ["Brad Pitt", "2017-05-03", 25],
   // ["Ryan Reynolds", "2016-11-14", 6],

@@ -294,6 +294,9 @@ const openCover = (key) => {
   const cases = data.cases || {};
 
   for (let i = 1; i <= data.gallery; i++) {
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("asset-embed-wrapper");
+
     const div = document.createElement("div");
     div.classList.add("asset-embed");
 
@@ -302,17 +305,17 @@ const openCover = (key) => {
     else if (cases["33"]?.includes(i)) sizeClass = "width-33";
     else if (cases["25"]?.includes(i)) sizeClass = "width-25";
 
-    div.classList.add(sizeClass);
+    wrapper.classList.add(sizeClass);
 
     if (cases["1:1"]?.includes(i)) {
-      div.classList.add("aspect-ratio-1", "grid-wrapper");
+      wrapper.classList.add("aspect-ratio-1", "grid-wrapper");
     }
     if (cases.right?.includes(i)) {
-      div.classList.add("object-position-right");
+      wrapper.classList.add("object-position-right");
     }
 
     if (cases.video?.includes(i)) {
-      div.appendChild(createVideoElement(key, i));
+      wrapper.appendChild(createVideoElement(key, i));
     } else {
       const { template, picture, sources, img } = createImageTemplate();
 
@@ -323,10 +326,11 @@ const openCover = (key) => {
       img.alt = deleteNum(key);
       showImage(img);
 
-      div.appendChild(template);
+      wrapper.appendChild(template);
     }
 
-    fragment.appendChild(div);
+    wrapper.appendChild(div);
+    fragment.appendChild(wrapper);
   }
 
   articleBody.appendChild(fragment);

@@ -294,19 +294,19 @@ main {
   gap: 1em 2.5rem;
 }
 
-.asset-embed.width-100 {
+.asset-embed-wrapper.width-100 {
   width: 100%;
 }
 
-.asset-embed.width-50 {
+.asset-embed-wrapper.width-50 {
   width: calc((100% - 2.5rem) / 2);
 }
 
-.asset-embed.width-33 {
+.asset-embed-wrapper.width-33 {
   width: calc((100% - 2.5rem * 2) / 3);
 }
 
-.asset-embed.width-25 {
+.asset-embed-wrapper.width-25 {
   width: calc((100% - 2.5rem * 3) / 4);
 }
 
@@ -466,32 +466,32 @@ main {
     gap: 40px;
   }
 
-  .asset-embed.width-100:not(.grid-wrapper) {
+  .asset-embed-wrapper.width-100:not(.grid-wrapper) {
     padding-inline: var(--grid-margin);
   }
 
-  .asset-embed.width-50 {
+  .asset-embed-wrapper.width-50 {
     width: 100%;
   }
 
-  .asset-embed.width-33 {
+  .asset-embed-wrapper.width-33 {
     width: 100%;
   }
 
-  .asset-embed.width-25 {
+  .asset-embed-wrapper.width-25 {
     width: 100%;
   }
 
-  .asset-embed.grid-wrapper picture {
+  .asset-embed-wrapper.grid-wrapper picture {
     grid-column: 1 / -1;
   }
 
-  .asset-embed.aspect-ratio-1 img {
+  .asset-embed-wrapper.aspect-ratio-1 img {
     object-fit: cover;
     aspect-ratio: 1;
   }
 
-  .asset-embed.object-position-right img {
+  .asset-embed-wrapper.object-position-right img {
     object-position: right;
   }
 }
