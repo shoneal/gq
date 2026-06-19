@@ -31,7 +31,7 @@ export const covers = {
     cases: {
       33: [1, 2, 3, 4, 5, 6],
       "1:1": [7, 12, 23],
-      "1:1 right": [23],
+      right: [23],
     },
   },
   "Josh Hutcherson": {
@@ -746,4 +746,12 @@ export const covers = {
       50: [3, 4, 7, 8],
     },
   },
+
+  // ["Henry Golding", "2018-11-13", 9],
+  // ["Michael B. Jordan", "2018-11-12", 8],
+  // ["Kylie Jenner and Travis Scott", "2018-07-17", 12],
+  // ["Kevin Durant", "2017-11-16", 7],
+  // ["Brad Pitt", "2017-05-03", 25],
+  // ["Ryan Reynolds", "2016-11-14", 6],
+  // ["David Beckham", "2016-03-16", 8]
 };

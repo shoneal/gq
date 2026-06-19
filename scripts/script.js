@@ -10,7 +10,7 @@ const bodyElements = {
   yearsContainer: document.querySelector(".one-nav-container"),
   main: document.querySelector("main"),
   summaryCollection: document.querySelector(".summary-collection-content"),
-  footers: document.querySelectorAll("footer"),
+  footers: document.querySelectorAll(".footer"),
   popup: document.querySelector(".popup"),
   popupContent: document.querySelector(".popup-content"),
   GQlogo: document.getElementById("GQ-logo"),
@@ -57,7 +57,8 @@ const textToSlug = (text) => {
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
 }; // Текст в URL-формат
-const deleteNum = (name) => name.replace(/\d+(?=\D)|(?<=\D)\d+/g, "").trim(); // Удаление слипшихся с текстом цифр
+const deleteNum = (name) =>
+  name.replace(/(?<=[A-Za-z])\d+|\d+(?=[A-Za-z])/g, "").trim(); // Удаление слипшихся с текстом цифр
 const buildUrl = (type, name, mark = "", { mobile = false } = {}) => {
   const slug = textToSlug(name);
   const mobilePath = mobile ? "/mobile" : "";
@@ -290,27 +291,28 @@ const openCover = (key) => {
   date.textContent = formatDate(data.published);
 
   const fragment = document.createDocumentFragment();
+  const cases = data.cases || {};
 
   for (let i = 1; i <= data.gallery; i++) {
     const div = document.createElement("div");
     div.classList.add("asset-embed");
 
-    const sizeClass = data.cases["50"]?.includes(i)
-      ? "width-50"
-      : data.cases["33"]?.includes(i)
-        ? "width-33"
-        : data.cases["25"]?.includes(i)
-          ? "width-25"
-          : "width-100";
-    div.classList.add(sizeClass);
-    div.classList.toggle("aspect-ratio-1", data.cases["1:1"]?.includes(i));
-    div.classList.toggle(
-      "object-position-right",
-      data.cases["1:1 right"]?.includes(i),
-    );
+    let sizeClass = "width-100";
+    if (cases["50"]?.includes(i)) sizeClass = "width-50";
+    else if (cases["33"]?.includes(i)) sizeClass = "width-33";
+    else if (cases["25"]?.includes(i)) sizeClass = "width-25";
 
-    if (data.cases.video?.includes(i)) {
-      div.appendChild(createVideoElement(key, index));
+    div.classList.add(sizeClass);
+
+    if (cases["1:1"]?.includes(i)) {
+      div.classList.add("aspect-ratio-1", "grid-wrapper");
+    }
+    if (cases.right?.includes(i)) {
+      div.classList.add("object-position-right");
+    }
+
+    if (cases.video?.includes(i)) {
+      div.appendChild(createVideoElement(key, i));
     } else {
       const { template, picture, sources, img } = createImageTemplate();
 
@@ -350,7 +352,7 @@ bodyElements.resetButtons.forEach((button) => {
     const heading = main.querySelector("h1.year-header-hed");
     heading?.remove();
 
-    createCoverBlocks(covers, summaryCollection);
+    createCovers(covers, summaryCollection);
 
     resetButtons.forEach((btn) => btn.classList.add("active"));
 
@@ -390,6 +392,7 @@ bodyElements.footers.forEach((element) => {
     e.preventDefault();
 
     if (e.target.closest(".popup")) {
+      console.log("1");
       bodyElements.popupContent.scrollTop = 0;
     } else {
       window.scrollTo(0, 0);
