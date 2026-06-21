@@ -2,8 +2,8 @@ import { covers } from "./covers.js";
 
 //
 //
-const basicLink = document.querySelector('meta[property="og:url"]').content; // Главная ссылка
 const bodyElements = {
+  url: document.querySelector('meta[property="og:url"]'),
   header: document.querySelector("body > header"),
   resetButtons: document.querySelectorAll('a[data-id="base-clickable"]'),
   GQlogos: document.querySelectorAll(".logo"),
@@ -17,6 +17,7 @@ const bodyElements = {
   itemTemplate: document.getElementById("summary-item-template"),
   pictureTemplate: document.getElementById("picture-template"),
 }; // Элементы тела страницы
+const basicLink = bodyElements.url.content; // Главная ссылка
 const popupElements = {
   header: bodyElements.popup.querySelector(".header"),
   closeButton: bodyElements.popup.querySelector(".header .logo"),
@@ -307,13 +308,6 @@ const openCover = (key) => {
 
     wrapper.classList.add(sizeClass);
 
-    if (cases["1:1"]?.includes(i)) {
-      wrapper.classList.add("aspect-ratio-1", "grid-wrapper");
-    }
-    if (cases.right?.includes(i)) {
-      wrapper.classList.add("object-position-right");
-    }
-
     if (cases.video?.includes(i)) {
       wrapper.appendChild(createVideoElement(key, i));
     } else {
@@ -396,8 +390,7 @@ bodyElements.footers.forEach((element) => {
     e.preventDefault();
 
     if (e.target.closest(".popup")) {
-      console.log("1");
-      bodyElements.popupContent.scrollTop = 0;
+      bodyElements.popup.scrollTop = 0;
     } else {
       window.scrollTo(0, 0);
     }

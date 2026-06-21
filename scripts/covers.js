@@ -1,7 +1,7 @@
 export const covers = {
   "Amanda Seyfried": {
     published: "2026-06-15",
-    gallery: 8,
+    gallery: 9,
   },
   "Johnny Knoxville": {
     published: "2026-06-11",
@@ -27,11 +27,9 @@ export const covers = {
   "GQ All-Stars": {
     published: "2026-06-01",
     transition: true,
-    gallery: 38,
+    gallery: 37,
     cases: {
       33: [1, 2, 3, 4, 5, 6],
-      "1:1": [7, 12, 23],
-      right: [23],
     },
   },
   "Josh Hutcherson": {
@@ -258,9 +256,6 @@ export const covers = {
     published: "2024-11-15",
     transition: true,
     gallery: 9,
-    cases: {
-      "1:1": [9],
-    },
   },
   "Kobbie Mainoo and Cole Palmer": {
     published: "2024-11-13",
@@ -411,7 +406,7 @@ export const covers = {
       50: [3, 4, 5, 6, 7, 8, 10, 11, 14, 15, 17, 18],
     },
   },
-  "Timothée Chalamet": {
+  "Timothée Chalamet2": {
     published: "2023-10-17",
     gallery: 20,
     cases: {
@@ -601,7 +596,7 @@ export const covers = {
       50: [5, 6, 8, 9],
     },
   },
-  "Robert Pattinson": {
+  "Robert Pattinson2": {
     published: "2022-02-08",
     transition: true,
     gallery: 14,
@@ -780,6 +775,60 @@ export const covers = {
       50: [1, 2, 4, 5],
     },
   },
+  "Timothée Chalamet": {
+    published: "2018-02-14",
+    transition: true,
+    gallery: 9,
+    cases: {
+      50: [3, 4, 8],
+    },
+  },
+  "Kevin Durant": {
+    published: "2017-11-16",
+    transition: true,
+    gallery: 7,
+    cases: {
+      50: [2, 3],
+    },
+  },
+  "Robert Pattinson": {
+    published: "2017-08-09",
+    transition: true,
+    gallery: 11,
+    cases: {
+      50: [2, 3, 7, 8, 10, 11],
+    },
+  },
+  "Brad Pitt": {
+    published: "2017-05-03",
+    transition: true,
+    gallery: 22,
+    cases: {
+      50: [6, 7, 9, 10, 19, 21],
+      33: [1, 2, 3],
+    },
+  },
+  "Chance the Rapper and The Weeknd": {
+    published: "2017-02-14",
+    gallery: 13,
+    cases: {
+      50: [1, 2, 4, 5, 6, 7, 10, 11, 12, 13],
+    },
+  },
+  "Ryan Reynolds": {
+    published: "2016-11-14",
+    gallery: 6,
+    cases: {
+      50: [3, 4],
+    },
+  },
+  "Kendrick Lamar": {
+    published: "2016-10-20",
+    gallery: 16,
+    cases: {
+      50: [8, 9, 11, 14, 15],
+    },
+  },
   "Kim Kardashian": {
     published: "2016-06-16",
     gallery: 10,
@@ -787,9 +836,8 @@ export const covers = {
       50: [3, 4, 7, 8],
     },
   },
-
-  // ["Kevin Durant", "2017-11-16", 7],
-  // ["Brad Pitt", "2017-05-03", 25],
-  // ["Ryan Reynolds", "2016-11-14", 6],
-  // ["David Beckham", "2016-03-16", 8]
+  "David Beckham": {
+    published: "2016-03-16",
+    gallery: 10,
+  },
 };
