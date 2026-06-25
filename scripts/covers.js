@@ -1,35 +1,50 @@
 export const covers = {
   "Amanda Seyfried": {
     published: "2026-06-15",
-    gallery: 9,
+    gallery: 8,
+    cases: {
+      horizontal: [2, 4, 7, 8],
+    },
   },
   "Johnny Knoxville": {
     published: "2026-06-11",
     gallery: 8,
+    cases: {
+      horizontal: [3],
+    },
   },
   "Charles Melton2": {
     published: "2026-06-10",
     gallery: 7,
+    cases: {
+      horizontal: [2, 4, 5, 7],
+    },
   },
   "Idris Elba": {
     published: "2026-06-08",
     transition: true,
     gallery: 10,
+    cases: {
+      horizontal: [7],
+    },
   },
   "Matt Damon, Tom Holland and Robert Pattinson": {
     published: "2026-06-02",
     gallery: 19,
     cases: {
-      33: [1, 2, 3, 8, 9, 10],
-      50: [6, 7],
+      33: [1, 2, 3, 9, 10, 11],
+      50: [7, 8],
+      horizontal: [4, 12, 14],
     },
   },
   "GQ All-Stars": {
     published: "2026-06-01",
     transition: true,
-    gallery: 37,
+    gallery: 36,
     cases: {
       33: [1, 2, 3, 4, 5, 6],
+      50: [33, 34],
+      horizontal: [7, 21, 22, 24],
     },
   },
   "Josh Hutcherson": {
@@ -38,6 +53,7 @@ export const covers = {
     gallery: 11,
     cases: {
       50: [4, 5],
+      horizontal: [7, 11],
     },
   },
   "Paul Anthony Kelly": {
@@ -45,6 +61,7 @@ export const covers = {
     gallery: 12,
     cases: {
       50: [8, 9],
+      horizontal: [7],
     },
   },
   "Lewis Pullman": {
@@ -52,6 +69,7 @@ export const covers = {
     gallery: 9,
     cases: {
       50: [4, 5],
+      horizontal: [3],
     },
   },
   "Pierce Brosnan": {
@@ -66,6 +84,7 @@ export const covers = {
     gallery: 6,
     cases: {
       50: [2, 3],
+      horizontal: [4],
     },
   },
   "Josh O’Connor2": {
@@ -80,6 +99,7 @@ export const covers = {
     gallery: 16,
     cases: {
       50: [3, 4, 6, 7, 9, 12],
+      horizontal: [5, 10, 13, 16],
     },
   },
   "Glen Powell": {
@@ -87,6 +107,7 @@ export const covers = {
     gallery: 13,
     cases: {
       50: [7, 8],
+      horizontal: [10],
     },
   },
   "Tyshawn Jones": {
@@ -94,6 +115,7 @@ export const covers = {
     gallery: 12,
     cases: {
       50: [6, 7],
+      horizontal: [11],
     },
   },
   "Cooper Hoffman and David Jonsson": {
@@ -101,6 +123,7 @@ export const covers = {
     gallery: 13,
     cases: {
       50: [6, 7, 9, 10],
+      horizontal: [3, 8, 11, 13],
     },
   },
   "Travis Kelce": {
@@ -108,6 +131,7 @@ export const covers = {
     gallery: 15,
     cases: {
       50: [1, 2, 10, 11],
+      horizontal: [5],
     },
   },
   "David Corenswet": {
@@ -129,6 +153,7 @@ export const covers = {
     gallery: 16,
     cases: {
       50: [4, 5, 8, 9, 11, 12],
+      horizontal: [2, 6, 10, 16],
     },
   },
   "Jodie Comer": {
@@ -147,6 +172,7 @@ export const covers = {
     gallery: 8,
     cases: {
       50: [4, 5, 8, 9, 11, 12],
+      horizontal: [2, 8],
     },
   },
   Clipse: {
@@ -165,12 +191,16 @@ export const covers = {
       33: [1, 2, 3],
       50: [12, 13, 15, 16],
       video: [6, 19, 23],
+      horizontal: [5, 10, 18, 22, 24],
     },
   },
   "Stephen Graham": {
     published: "2025-05-27",
     transition: true,
     gallery: 9,
+    cases: {
+      horizontal: [4],
+    },
   },
   "Kaitlyn Dever": {
     published: "2025-05-26",
@@ -178,10 +208,6 @@ export const covers = {
     cases: {
       50: [3, 4],
     },
-  },
-  "Jon Hamm": {
-    published: "2025-05-21",
-    gallery: 6,
   },
   "Charles Melton": {
     published: "2025-05-20",
@@ -204,17 +230,24 @@ export const covers = {
   "Ben Affleck": {
     published: "2025-03-25",
     gallery: 10,
+    cases: {
+      horizontal: [3, 4, 8],
+    },
   },
   "Michael B. Jordan2": {
     published: "2025-02-12",
     gallery: 9,
     cases: {
       50: [7, 8],
+      horizontal: [4, 9],
     },
   },
   "Aaron Pierre": {
     published: "2025-01-22",
     gallery: 7,
+    cases: {
+      horizontal: [2],
+    },
   },
   "Maurizio Lombardi": {
     published: "2025-01-14",
@@ -227,6 +260,7 @@ export const covers = {
     gallery: 13,
     cases: {
       50: [11, 12],
+      horizontal: [2, 6, 9],
     },
   },
   "Andrew Garfield2": {
@@ -235,6 +269,7 @@ export const covers = {
     gallery: 7,
     cases: {
       50: [4, 5],
+      horizontal: [7],
     },
   },
   "Naomi Ackie": {
@@ -256,6 +291,9 @@ export const covers = {
     published: "2024-11-15",
     transition: true,
     gallery: 9,
+    cases: {
+      horizontal: [2, 6, 9],
+    },
   },
   "Kobbie Mainoo and Cole Palmer": {
     published: "2024-11-13",
@@ -266,6 +304,9 @@ export const covers = {
     published: "2024-11-12",
     transition: true,
     gallery: 7,
+    cases: {
+      horizontal: [2],
+    },
   },
   "Dwayne Johnson": {
     published: "2024-11-11",
@@ -273,6 +314,7 @@ export const covers = {
     gallery: 16,
     cases: {
       50: [2, 3, 5, 6, 9, 10, 12, 13],
+      horizontal: [7, 11, 14],
     },
   },
   "Himesh Patel": {
@@ -281,11 +323,15 @@ export const covers = {
     gallery: 9,
     cases: {
       50: [4, 5, 7, 8],
+      horizontal: [3],
     },
   },
   Beyoncé: {
     published: "2024-09-10",
     gallery: 8,
+    cases: {
+      horizontal: [2, 3, 5, 6],
+    },
   },
   "Stefon Diggs": {
     published: "2024-09-03",
@@ -296,6 +342,7 @@ export const covers = {
     gallery: 11,
     cases: {
       50: [7, 8],
+      horizontal: [3, 5, 9, 10],
     },
   },
   "Tyrese Haliburton": {
@@ -316,11 +363,6 @@ export const covers = {
     published: "2024-06-03",
     gallery: 9,
   },
-  "Anya Taylor-Joy": {
-    published: "2024-05-22",
-    transition: true,
-    gallery: 7,
-  },
   "Nicholas Galitzine": {
     published: "2024-05-08",
     gallery: 9,
@@ -337,6 +379,7 @@ export const covers = {
     gallery: 9,
     cases: {
       50: [5, 6],
+      horizontal: [4],
     },
   },
   "Callum Turner": {
@@ -368,6 +411,9 @@ export const covers = {
   "Daniel Kaluuya": {
     published: "2024-01-23",
     gallery: 7,
+    cases: {
+      horizontal: [5],
+    },
   },
   "Kylian Mbappé": {
     published: "2024-01-17",
@@ -379,6 +425,7 @@ export const covers = {
     gallery: 11,
     cases: {
       50: [4, 5],
+      horizontal: [2, 3, 6, 7, 8, 9, 10],
     },
   },
   "Travis Scott": {
@@ -386,6 +433,7 @@ export const covers = {
     gallery: 10,
     cases: {
       50: [4, 5],
+      horizontal: [3, 6, 8],
     },
   },
   "Kim Kardashian2": {
@@ -393,11 +441,15 @@ export const covers = {
     gallery: 11,
     cases: {
       50: [9, 10],
+      horizontal: [6, 9],
     },
   },
   "Jeremy Allen White2": {
     published: "2023-11-13",
     gallery: 7,
+    cases: {
+      horizontal: [3, 4, 5, 6],
+    },
   },
   "Hailey Bieber": {
     published: "2023-10-24",
@@ -412,11 +464,15 @@ export const covers = {
     cases: {
       25: [2, 3, 4, 5],
       50: [10, 11],
+      horizontal: [7, 12, 16, 20],
     },
   },
   "Chris Evans": {
     published: "2023-09-19",
     gallery: 9,
+    cases: {
+      horizontal: [2],
+    },
   },
   "Jules Koundé": {
     published: "2023-09-06",
@@ -425,6 +481,9 @@ export const covers = {
   "Josh O’Connor": {
     published: "2023-08-30",
     gallery: 9,
+    cases: {
+      horizontal: [4, 7, 9],
+    },
   },
   "Pharrell Williams2": {
     published: "2023-08-15",
@@ -453,12 +512,8 @@ export const covers = {
     gallery: 14,
     cases: {
       50: [2, 3, 6, 7, 9, 10],
+      horizontal: [8],
     },
-  },
-  "Will Poulter": {
-    published: "2023-05-09",
-    transition: true,
-    gallery: 6,
   },
   "Toheeb Jimoh": {
     published: "2023-04-19",
@@ -476,11 +531,15 @@ export const covers = {
   "Julio Rodríguez": {
     published: "2023-03-29",
     gallery: 10,
+    cases: {
+      horizontal: [3, 6, 7, 10],
+    },
   },
   "Tyler James Williams": {
     published: "2023-03-22",
     transition: true,
     gallery: 7,
+    horizontal: [5],
   },
   "Brett Goldstein": {
     published: "2023-03-06",
@@ -491,18 +550,6 @@ export const covers = {
     published: "2023-02-01",
     transition: true,
     gallery: 9,
-  },
-  "Rupert Grint": {
-    published: "2023-01-30",
-    transition: true,
-    gallery: 6,
-  },
-  "Allen Iverson": {
-    published: "2023-01-10",
-    gallery: 9,
-    cases: {
-      50: [2, 3, 4, 5],
-    },
   },
   "Kumail Nanjiani": {
     published: "2023-01-09",
@@ -545,6 +592,9 @@ export const covers = {
   "Karim Benzema": {
     published: "2022-11-02",
     gallery: 7,
+    cases: {
+      horizontal: [4],
+    },
   },
   "Christian Bale": {
     published: "2022-10-05",
@@ -557,6 +607,9 @@ export const covers = {
     published: "2022-09-21",
     transition: true,
     gallery: 6,
+    cases: {
+      horizontal: [4],
+    },
   },
   "Ferrari Drivers Charles Leclerc and Carlos Sainz": {
     published: "2022-08-09",
@@ -569,6 +622,9 @@ export const covers = {
   Quavo: {
     published: "2022-07-13",
     gallery: 10,
+    cases: {
+      horizontal: [4, 10],
+    },
   },
   "Rowan Atkinson": {
     published: "2022-06-24",
@@ -602,6 +658,7 @@ export const covers = {
     gallery: 14,
     cases: {
       50: [1, 2, 5, 6, 12, 13],
+      horizontal: [9],
     },
   },
   "Stephen Curry": {
@@ -609,6 +666,7 @@ export const covers = {
     gallery: 12,
     cases: {
       50: [3, 4, 9, 10],
+      horizontal: [8],
     },
   },
   "Shohei Ohtani": {
@@ -617,6 +675,7 @@ export const covers = {
     cases: {
       50: [2, 3, 4, 5, 7, 8, 12, 13, 17, 18, 19, 20, 23, 24],
       33: [9, 10, 11],
+      horizontal: [6, 14, 22],
     },
   },
   "Mo Salah": {
@@ -631,19 +690,29 @@ export const covers = {
     gallery: 13,
     cases: {
       50: [7, 8],
+      horizontal: [4, 5, 11],
     },
   },
   "Jason Sudeikis": {
     published: "2021-07-13",
     gallery: 7,
+    cases: {
+      horizontal: [3],
+    },
   },
   "A$AP Rocky": {
     published: "2021-05-19",
     gallery: 12,
+    cases: {
+      horizontal: [5, 10],
+    },
   },
   "Steven Yeun": {
     published: "2021-03-08",
     gallery: 8,
+    cases: {
+      horizontal: [3, 5, 7],
+    },
   },
   "Modern Lovers Issue": {
     published: "2021-02-11",
@@ -652,6 +721,7 @@ export const covers = {
     cases: {
       50: [11, 12, 21, 22],
       33: [1, 2, 3],
+      horizontal: [6, 16, 19, 23, 24],
     },
   },
   "Patrick Mahomes": {
@@ -659,17 +729,22 @@ export const covers = {
     gallery: 9,
     cases: {
       50: [2, 3, 5, 6],
+      horizontal: [7],
     },
   },
   "Kanye West": {
     published: "2020-04-16",
     gallery: 9,
+    cases: {
+      horizontal: [3, 5],
+    },
   },
   "James Harden and Russell Westbrook": {
     published: "2020-02-18",
     gallery: 8,
     cases: {
       50: [4, 5],
+      horizontal: [8],
     },
   },
   "Tyler, the Creator": {
@@ -684,6 +759,7 @@ export const covers = {
     gallery: 6,
     cases: {
       50: [4, 5],
+      horizontal: [6],
     },
   },
   "Pharrell Williams": {
@@ -692,6 +768,7 @@ export const covers = {
     gallery: 12,
     cases: {
       50: [2, 3],
+      horizontal: [7, 10],
     },
   },
   "Brad Pitt2": {
@@ -700,6 +777,7 @@ export const covers = {
     gallery: 12,
     cases: {
       50: [3, 4, 7, 8, 9, 10],
+      horizontal: [5, 6, 11],
     },
   },
   "Odell Beckham Jr.": {
@@ -708,6 +786,7 @@ export const covers = {
     gallery: 15,
     cases: {
       50: [5, 6, 11, 12],
+      horizontal: [10, 14],
     },
   },
   "Seth Rogen": {
@@ -724,6 +803,7 @@ export const covers = {
     gallery: 13,
     cases: {
       50: [3, 4, 5, 6, 10, 11],
+      horizontal: [7, 9],
     },
   },
   "Frank Ocean": {
@@ -740,6 +820,7 @@ export const covers = {
     gallery: 9,
     cases: {
       50: [3, 4, 7, 8],
+      horizontal: [5],
     },
   },
   "Michael B. Jordan": {
@@ -748,6 +829,7 @@ export const covers = {
     gallery: 8,
     cases: {
       50: [6, 7],
+      horizontal: [4, 8],
     },
   },
   "Chris Hemsworth": {
@@ -756,6 +838,7 @@ export const covers = {
     gallery: 11,
     cases: {
       50: [2, 3, 5, 6, 9, 10],
+      horizontal: [7],
     },
   },
   "Kylie Jenner and Travis Scott": {
@@ -765,6 +848,7 @@ export const covers = {
     cases: {
       50: [8, 9, 13, 14],
       33: [5, 6, 7],
+      horizontal: [2, 10],
     },
   },
   "James Harden": {
@@ -773,6 +857,7 @@ export const covers = {
     gallery: 10,
     cases: {
       50: [1, 2, 4, 5],
+      horizontal: [7],
     },
   },
   "Timothée Chalamet": {
@@ -781,6 +866,7 @@ export const covers = {
     gallery: 9,
     cases: {
       50: [3, 4, 8],
+      horizontal: [2, 5, 6],
     },
   },
   "Kevin Durant": {
@@ -797,6 +883,7 @@ export const covers = {
     gallery: 11,
     cases: {
       50: [2, 3, 7, 8, 10, 11],
+      horizontal: [4, 9],
     },
   },
   "Brad Pitt": {
@@ -806,6 +893,7 @@ export const covers = {
     cases: {
       50: [6, 7, 9, 10, 19, 21],
       33: [1, 2, 3],
+      horizontal: [4, 5, 8, 11, 12, 13, 14, 16, 17, 18, 20, 22],
     },
   },
   "Chance the Rapper and The Weeknd": {
@@ -813,6 +901,7 @@ export const covers = {
     gallery: 13,
     cases: {
       50: [1, 2, 4, 5, 6, 7, 10, 11, 12, 13],
+      horizontal: [3, 8, 9],
     },
   },
   "Ryan Reynolds": {
@@ -820,13 +909,15 @@ export const covers = {
     gallery: 6,
     cases: {
       50: [3, 4],
+      horizontal: [2],
     },
   },
   "Kendrick Lamar": {
     published: "2016-10-20",
     gallery: 16,
     cases: {
-      50: [8, 9, 11, 14, 15],
+      50: [8, 9, 14, 15],
+      horizontal: [1, 2, 3, 5, 6, 10, 11, 12, 13],
     },
   },
   "Kim Kardashian": {
@@ -834,10 +925,14 @@ export const covers = {
     gallery: 10,
     cases: {
       50: [3, 4, 7, 8],
+      horizontal: [2],
     },
   },
   "David Beckham": {
     published: "2016-03-16",
     gallery: 10,
+    cases: {
+      horizontal: [5],
+    },
   },
 };

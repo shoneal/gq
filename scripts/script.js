@@ -287,6 +287,7 @@ const openCover = (key) => {
     tempImg.src = mobileUrl;
   }
 
+  hed.classList.toggle("video", !!data.video);
   hed.classList.toggle("line", !!data.row);
   title.textContent = deleteNum(key);
   date.textContent = formatDate(data.published);
@@ -295,21 +296,19 @@ const openCover = (key) => {
   const cases = data.cases || {};
 
   for (let i = 1; i <= data.gallery; i++) {
-    const wrapper = document.createElement("div");
-    wrapper.classList.add("asset-embed-wrapper");
-
     const div = document.createElement("div");
     div.classList.add("asset-embed");
 
-    let sizeClass = "width-100";
+    let sizeClass = "grid-wrapper";
     if (cases["50"]?.includes(i)) sizeClass = "width-50";
     else if (cases["33"]?.includes(i)) sizeClass = "width-33";
     else if (cases["25"]?.includes(i)) sizeClass = "width-25";
+    else if (cases.horizontal?.includes(i)) sizeClass = "horizontal-img";
 
-    wrapper.classList.add(sizeClass);
+    div.classList.add(sizeClass);
 
     if (cases.video?.includes(i)) {
-      wrapper.appendChild(createVideoElement(key, i));
+      div.appendChild(createVideoElement(key, i));
     } else {
       const { template, picture, sources, img } = createImageTemplate();
 
@@ -320,11 +319,10 @@ const openCover = (key) => {
       img.alt = deleteNum(key);
       showImage(img);
 
-      wrapper.appendChild(template);
+      div.appendChild(template);
     }
 
-    wrapper.appendChild(div);
-    fragment.appendChild(wrapper);
+    fragment.appendChild(div);
   }
 
   articleBody.appendChild(fragment);
