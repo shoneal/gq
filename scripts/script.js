@@ -20,7 +20,6 @@ const bodyElements = {
 const basicLink = bodyElements.url.content; // Главная ссылка
 const popupElements = {
   header: bodyElements.popup.querySelector(".header"),
-  closeButton: bodyElements.popup.querySelector(".header .logo"),
   hed: bodyElements.popupContent.querySelector(".content-header"),
   hedContainer: bodyElements.popupContent.querySelector(
     ".content-header-container",
@@ -67,6 +66,8 @@ const buildUrl = (type, name, mark = "", { mobile = false } = {}) => {
   switch (type) {
     case "cover":
       return `${basicLink}images/covers/${slug}/cover.webp`;
+    case "poster":
+      return `${basicLink}images/posters/${slug}/${mark}.jpg`;
     case "video":
       return `${basicLink}video/${slug}/${mark}.mp4`;
     default:
@@ -89,9 +90,13 @@ const showImage = (img) => {
 }; // Функция для настройки загрузки изображения
 const createVideoElement = (key, mark) => {
   const video = document.createElement("video");
+  video.setAttribute("muted", "");
+  video.setAttribute("autoplay", "");
+  video.setAttribute("loop", "");
+  video.setAttribute("playsinline", "");
+  video.setAttribute("preload", "auto");
+  video.poster = buildUrl("poster", key, mark);
   video.src = buildUrl("video", key, mark);
-  video.preload = "auto";
-  video.loop = video.muted = video.autoplay = video.playsInline = true;
   return video;
 }; // Создание видеоэлемента
 const createImageTemplate = () => {
@@ -132,9 +137,13 @@ const addCloseOverlayListener = (element) => {
     if (e.target === e.currentTarget) closePopup(e.currentTarget);
   });
 }; // Закрытие модуля при нажатии вне его
-popupElements.closeButton.addEventListener("click", () => {
-  closePopup(bodyElements.popup);
-}); // Обработчик на кнопку закрытия модуля
+popupElements.header.addEventListener("click", (e) => {
+  if (e.target.closest("a")) {
+    closePopup(bodyElements.popup);
+  } else {
+    bodyElements.popup.scrollTop = 0;
+  }
+}); // Обработчик на шапку попапа: закрытие по лого и скролл наверх по самой шапке
 
 //
 //
@@ -249,46 +258,42 @@ const createCovers = (data, container) => {
 }; // Функция выведения covers на страницу
 const openCover = (key) => {
   const data = covers[key];
-
   const { hed, hedContainer, title, date, articleBody } = popupElements;
   const popup = bodyElements.popup;
 
   hedContainer.innerHTML = "";
   articleBody.innerHTML = "";
 
-  if (data.video) {
+  const headerFlags = data.cases?.header || [];
+
+  if (headerFlags.includes("video")) {
     hedContainer.appendChild(createVideoElement(key, "header"));
-  } else if (!data.noHeader) {
+    // hedContainer.classList.remove("grid-wrapper");
+  } else {
     const { template, picture, sources, img } = createImageTemplate();
 
-    const mobileUrl = buildUrl("img", key, "header", { mobile: true });
+    hedContainer.classList.toggle(
+      "grid-wrapper",
+      !headerFlags.includes("horizontal"),
+    );
 
-    const tempImg = new Image();
-    tempImg.onload = () => {
-      if (tempImg.height > tempImg.width) {
-        hedContainer.classList.add("grid-wrapper");
-      } else {
-        hedContainer.classList.remove("grid-wrapper");
-      }
+    sources[0].srcset = headerFlags.includes("cover")
+      ? buildUrl("cover", key)
+      : buildUrl("img", key, "header", { mobile: true });
+    sources[1].srcset = buildUrl("img", key, "header");
 
-      if (data.transition) {
-        sources[0].srcset = buildUrl("cover", key);
-      } else {
-        sources[0].srcset = mobileUrl;
-      }
-      sources[1].srcset = buildUrl("img", key, "header");
-      img.style.opacity = "0";
-      img.src = sources[1].srcset;
-      img.alt = deleteNum(key);
-      showImage(img);
+    img.style.opacity = "0";
+    img.src = sources[1].srcset;
+    img.alt = deleteNum(key);
+    showImage(img);
 
-      hedContainer.appendChild(template);
-    };
-    tempImg.src = mobileUrl;
+    hedContainer.appendChild(template);
   }
 
-  hed.classList.toggle("video", !!data.video);
-  hed.classList.toggle("line", !!data.row);
+  hed.classList.toggle("video", headerFlags.includes("video"));
+  hed.classList.toggle("line", headerFlags.includes("row"));
+  if (headerFlags.includes("video") || headerFlags.includes("row"))
+    hedContainer.classList.remove("grid-wrapper");
   title.textContent = deleteNum(key);
   date.textContent = formatDate(data.published);
 
@@ -296,16 +301,21 @@ const openCover = (key) => {
   const cases = data.cases || {};
 
   for (let i = 1; i <= data.gallery; i++) {
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("asset-embed");
+
     const div = document.createElement("div");
-    div.classList.add("asset-embed");
 
     let sizeClass = "grid-wrapper";
-    if (cases["50"]?.includes(i)) sizeClass = "width-50";
+    if (cases.special?.includes(i)) sizeClass = "special";
+    else if (cases["50"]?.includes(i)) sizeClass = "width-50";
     else if (cases["33"]?.includes(i)) sizeClass = "width-33";
     else if (cases["25"]?.includes(i)) sizeClass = "width-25";
     else if (cases.horizontal?.includes(i)) sizeClass = "horizontal-img";
 
-    div.classList.add(sizeClass);
+    if (cases.mobile?.includes(i)) sizeClass += " mobile";
+
+    div.className = sizeClass;
 
     if (cases.video?.includes(i)) {
       div.appendChild(createVideoElement(key, i));
@@ -322,7 +332,8 @@ const openCover = (key) => {
       div.appendChild(template);
     }
 
-    fragment.appendChild(div);
+    wrapper.appendChild(div);
+    fragment.appendChild(wrapper);
   }
 
   articleBody.appendChild(fragment);
