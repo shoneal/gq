@@ -1,4 +1,12 @@
 export const covers = {
+  "Jorja Smith": {
+    published: "2026-07-03",
+    gallery: 8,
+    cases: {
+      header: ["horizontal", "cover"],
+      horizontal: [4],
+    },
+  },
   "Amanda Seyfried": {
     published: "2026-06-15",
     gallery: 8,
