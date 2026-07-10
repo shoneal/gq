@@ -234,6 +234,9 @@ const createCovers = (data, container) => {
       ([, person]) =>
         !activeYear || person.published.split("-")[0] === activeYear,
     )
+    .sort(([, a], [, b]) => {
+      return b.published.localeCompare(a.published);
+    })
     .forEach(([key, data]) => {
       const clone = bodyElements.itemTemplate.content.cloneNode(true);
 

@@ -1,4 +1,27 @@
 export const covers = {
+  "Nathy Peluso": {
+    published: "2025-06-24",
+    gallery: 5,
+    cases: {
+      header: ["horizontal", "cover"],
+      horizontal: [2],
+    },
+  },
+  "Taz Skylar": {
+    published: "2026-03-13",
+    gallery: 10,
+    cases: {
+      50: [8, 9],
+    },
+  },
+  "Joe Alwyn": {
+    published: "2026-01-22",
+    gallery: 11,
+    cases: {
+      header: ["horizontal", "cover"],
+      50: [2, 3],
+    },
+  },
   "Jorja Smith": {
     published: "2026-07-03",
     gallery: 8,
@@ -90,6 +113,14 @@ export const covers = {
       header: ["horizontal"],
       50: [4, 5],
       horizontal: [3],
+    },
+  },
+  "Joe Alwyn": {
+    published: "2026-01-22",
+    gallery: 11,
+    cases: {
+      header: ["horizontal", "cover"],
+      50: [2, 3],
     },
   },
   "Pierce Brosnan": {
