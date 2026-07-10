@@ -95,7 +95,7 @@ export const covers = {
     gallery: 7,
     cases: {
       header: ["cover"],
-      25: [5, 7],
+      50: [5, 7],
     },
   },
   "Paul Anthony Kelly": {
