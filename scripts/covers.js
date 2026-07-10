@@ -67,6 +67,14 @@ export const covers = {
       horizontal: [7, 11],
     },
   },
+  "Mats Hummels": {
+    published: "2026-02-26",
+    gallery: 7,
+    cases: {
+      header: ["cover"],
+      25: [5, 7],
+    },
+  },
   "Paul Anthony Kelly": {
     published: "2026-02-24",
     gallery: 12,
