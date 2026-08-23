@@ -9,17 +9,11 @@ export const covers = {
   },
   "Jeremy Strong": {
     published: "2026-08-12",
-    gallery: 17,
+    gallery: 18,
     cases: {
-      33: [7, 9],
-      horizontal: [2, 5],
-    },
-  },
-  "Dominic Sessa": {
-    published: "2026-08-17",
-    gallery: 7,
-    cases: {
-      50: [3, 4],
+      33: [8, 10],
+      video: [3],
+      horizontal: [2, 6],
     },
   },
   "Aaron Pierre2": {
@@ -71,17 +65,19 @@ export const covers = {
   },
   "Amanda Seyfried": {
     published: "2026-06-15",
-    gallery: 8,
+    gallery: 9,
     cases: {
       header: ["horizontal"],
-      horizontal: [2, 4, 7, 8],
+      video: [3],
+      horizontal: [2, 5, 8, 9],
     },
   },
   "Johnny Knoxville": {
     published: "2026-06-11",
-    gallery: 8,
+    gallery: 9,
     cases: {
-      horizontal: [3],
+      video: [3],
+      horizontal: [4],
     },
   },
   "Charles Melton2": {
@@ -93,10 +89,11 @@ export const covers = {
   },
   "Idris Elba": {
     published: "2026-06-08",
-    gallery: 10,
+    gallery: 11,
     cases: {
       header: ["horizontal", "cover"],
-      horizontal: [7],
+      video: [3],
+      horizontal: [8],
     },
   },
   "Matt Damon, Tom Holland and Robert Pattinson": {
@@ -188,18 +185,20 @@ export const covers = {
   },
   "Shai Gilgeous-Alexander": {
     published: "2025-10-13",
-    gallery: 16,
+    gallery: 17,
     cases: {
-      50: [3, 4, 6, 7, 9, 12],
-      horizontal: [5, 10, 13, 16],
+      50: [4, 5, 7, 8, 10, 13],
+      video: [3],
+      horizontal: [6, 11, 14, 17],
     },
   },
   "Glen Powell": {
     published: "2025-09-09",
-    gallery: 13,
+    gallery: 14,
     cases: {
-      50: [7, 8],
-      horizontal: [10],
+      50: [8, 9],
+      video: [3],
+      horizontal: [11],
     },
   },
   "Tyshawn Jones": {
