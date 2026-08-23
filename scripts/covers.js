@@ -1,4 +1,43 @@
 export const covers = {
+  "Drew Starkey2": {
+    published: "2026-08-13",
+    gallery: 16,
+    cases: {
+      50: [2, 3, 10, 11],
+      horizontal: [4, 5, 7, 8, 9, 13, 15],
+    },
+  },
+  "Jeremy Strong": {
+    published: "2026-08-12",
+    gallery: 17,
+    cases: {
+      33: [7, 9],
+      horizontal: [2, 5],
+    },
+  },
+  "Dominic Sessa": {
+    published: "2026-08-17",
+    gallery: 7,
+    cases: {
+      50: [3, 4],
+    },
+  },
+  "Aaron Pierre2": {
+    published: "2026-08-03",
+    gallery: 8,
+    cases: {
+      header: ["horizontal", "cover"],
+      50: [3, 4],
+    },
+  },
+  "Theo James": {
+    published: "2026-08-20",
+    gallery: 8,
+    cases: {
+      header: ["horizontal"],
+      horizontal: [2, 6],
+    },
+  },
   "Nathy Peluso": {
     published: "2025-06-24",
     gallery: 5,
