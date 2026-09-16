@@ -1,4 +1,21 @@
 export const covers = {
+  "Kimi Antonelli": {
+    published: "2026-08-25",
+    gallery: 13,
+    cases: {
+      header: ["horizontal"],
+      50: [4,5,8,9],
+      horizontal: [13],
+    },
+  },
+  "Tom Cruise": {
+    published: "2026-09-15",
+    gallery: 14,
+    cases: {
+      header: ["horizontal"],
+      horizontal: [3,4,5,6,8,10,11,12,13],
+    },
+  },
   "Drew Starkey2": {
     published: "2026-08-13",
     gallery: 16,
