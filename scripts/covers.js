@@ -1,10 +1,19 @@
 export const covers = {
+  "Stephon Castle and Dylan Harper": {
+    published: "2026-09-28",
+    gallery: 9,
+    cases: {
+      header: ["horizontal"],
+      50: [3,4,5,6],
+      horizontal: [9],
+    },
+  },
   "Kimi Antonelli": {
     published: "2026-08-25",
     gallery: 13,
     cases: {
       header: ["horizontal"],
-      50: [4,5,8,9],
+      50: [4, 5, 8, 9],
       horizontal: [13],
     },
   },
@@ -13,7 +22,7 @@ export const covers = {
     gallery: 14,
     cases: {
       header: ["horizontal"],
-      horizontal: [3,4,5,6,8,10,11,12,13],
+      horizontal: [3, 4, 5, 6, 8, 10, 11, 12, 13],
     },
   },
   "Drew Starkey2": {
