@@ -1,10 +1,66 @@
 export const covers = {
+  "Austin Abrams": {
+    published: "2026-09-14",
+    gallery: 8,
+    cases: {
+      header: ["horizontal"],
+      50: [4, 5],
+      horizontal: [2, 3, 6, 7, 8],
+    },
+  },
+  "Olivia Cooke": {
+    published: "2026-11-09",
+    gallery: 9,
+    cases: {
+      header: ["horizontal"],
+      horizontal: [2, 4, 5, 7, 8, 9],
+    },
+  },
+  "Sebastian Stan": {
+    published: "2026-11-12",
+    gallery: 7,
+    cases: {
+      horizontal: [4],
+      video: [7],
+    },
+  },
+  "Declan Rice": {
+    published: "2026-11-09",
+    gallery: 8,
+    cases: {
+      video: [5],
+    },
+  },
+  "Chris Rock": {
+    published: "2026-11-03",
+    gallery: 7,
+    cases: {
+      video: [7],
+    },
+  },
+  "Andrew Garfield3": {
+    published: "2026-11-04",
+    gallery: 7,
+    cases: {
+      horizontal: [3],
+      video: [7],
+    },
+  },
+  "Matt Damon2": {
+    published: "2026-11-05",
+    gallery: 8,
+    cases: {
+      header: ["horizontal"],
+      horizontal: [4],
+      video: [7],
+    },
+  },
   "Stephon Castle and Dylan Harper": {
     published: "2026-09-28",
     gallery: 9,
     cases: {
       header: ["horizontal"],
-      50: [3,4,5,6],
+      50: [3, 4, 5, 6],
       horizontal: [9],
     },
   },
@@ -52,10 +108,11 @@ export const covers = {
   },
   "Theo James": {
     published: "2026-08-20",
-    gallery: 8,
+    gallery: 9,
     cases: {
       header: ["horizontal"],
       horizontal: [2, 6],
+      video: [9],
     },
   },
   "Nathy Peluso": {
