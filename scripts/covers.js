@@ -620,11 +620,12 @@ export const covers = {
   },
   "André 3000": {
     published: "2023-11-16",
-    gallery: 11,
+    gallery: 12,
     cases: {
       header: ["video"],
       50: [4, 5],
       horizontal: [2, 3, 6, 7, 8, 9, 10],
+      video: [12],
     },
   },
   "Travis Scott": {
